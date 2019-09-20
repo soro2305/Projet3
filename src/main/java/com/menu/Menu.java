@@ -57,7 +57,6 @@ public class Menu {
     //Menu affiché en fin de partie
     public int endMenuUser() {
         Scanner input = new Scanner(System.in);
-        Menu choix = new Menu();
         int rejouer = 0;
         System.out.println("\n");
         System.out.println("Menu Express !!!");
@@ -75,7 +74,7 @@ public class Menu {
                 break;
             case 'B':
                 System.out.println("\n \n \n ");
-                choix.startMenuUser();
+                startMenuUser();
             case 'C':
                 System.out.println("\n \n \n ");
                 break;

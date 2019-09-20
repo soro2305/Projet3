@@ -33,7 +33,7 @@ public class Mode  {
         System.out.println("                              Infos ");
         System.out.println("                 Il y aura en tous "+(tours)+" manches");
         System.out.println("            Il y aura "+ nombreUnit + " chiffres par combinaison");
-        if (settingsObj.devMode==true) System.out.println("             Mode Dev activé L'EA a choisie : " + codeOrdi);
+        if (settingsObj.isDevMode()) System.out.println("             Mode Dev activé L'EA a choisie : " + codeOrdi);
         System.out.println("                        Bonnes chances !!!");
         System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
 
@@ -85,14 +85,15 @@ public class Mode  {
                 System.out.println("GAME OVER l'Ordi a trouvé la solution  " + codeUser + " !!!\n\n ");//Conditions pour quitter la boucle si victoire de l'EA
                 break;
             } else {
+
                 //Formate l affichage de sortie console
                 System.out.print("Proposition : " + codeOrdi + " -> Réponse : ");
                 //Méthode pour comparer les deux combinaisons et affiché "+-="
                 ordiObj.compare(codeOrdi, codeUser);
                 //Méthode pour générer nouvelle combinaison Ordi
 
-                codeTempo = ordiObj.newCodeOrdi(codeOrdi, codeUser);
-                codeOrdi = ordiObj.newCodeOrdi(codeUser, codeTempo);
+               // codeTempo = ordiObj.newCodeOrdi(codeOrdi, codeUser);
+                codeOrdi = ordiObj.newCodeOrdi(codeUser, codeOrdi);
 
                 //  System.out.println("\n"+codeTempo);
                 //   codeOrdi = ordiObj.new1(codeTempo,codeOrdi,codeUser);
@@ -124,14 +125,13 @@ public class Mode  {
         System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
         System.out.println("                              Infos ");
         System.out.println("            Il y aura "+ nombreUnit + " chiffres par combinaison");
-        if (settingsObj.devMode==true) System.out.println("             Mode Dev activé L'EA a choisie : " + codeOrdi);
+        if (settingsObj.isDevMode()) System.out.println("             Mode Dev activé L'EA a choisie : " + codeOrdi);
         System.out.println("                        Bonnes chances !!!");
         System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
 
         //Définition combinaison utilisateur
         codeUser = userObj.defineCodeUser();
         System.out.println("Votre combinaison est : "+codeUser+"\n");
-        System.out.println("le code unit est " + settingsObj.getNombreUnit());
         //Do while loop pour continuer tant qu il n'y a pas de vainqueur
         do {
             tentativeUser = userObj.attemptUser();

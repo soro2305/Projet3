@@ -19,7 +19,7 @@ public class Ordi extends Player { //Méthode qui génère un code aléatoire St
         return saisieUser.nextLine();// Retourne saisie du Scanner
     }
 
-    public String newCodeOrdi(String codeOrdi1, String codeTempo) {
+    public String newCodeOrdi(String codeOrdi1, String codeUser) {
         //Initialisation Objets variables
         Player playerObj = new Player();
         int unitPlusHaut = 0;
@@ -33,27 +33,20 @@ public class Ordi extends Player { //Méthode qui génère un code aléatoire St
         String newCodeString = "";
         //Deux boucles pour séparés caractères des code Ordi et User
         for (int i = 0; i < codeOrdi1.length(); i++) {
-            for (int i2 = 0; i < codeTempo.length(); i++) {
+            for (int i2 = 0; i < codeUser.length(); i++) {
                 //Stockage de ses caractères dans des var int
-                int unitCodeUser = Character.getNumericValue(codeTempo.charAt(i));
+                int unitCodeUser = Character.getNumericValue(codeUser.charAt(i));
                 int unitCodeOrdi = Character.getNumericValue(codeOrdi1.charAt(i));
                 //Conditions pour comparer si les futur unités combi Ordi doivent êtres "-+="
                 if (unitCodeUser < unitCodeOrdi) {
-                    previousCode[i] = unitCodeOrdi;//Stocke ancien code
-                    //Boucle génére nouvelle unité tant que plus haute que précédente
-                    do {
                         //Méthode random génére news units.Borne max ordi -1 pr évité les doublons
                         unitPlusBas = playerObj.generCodeInt(0, (unitCodeOrdi - 1));
-                    } while (unitPlusBas > unitCodeOrdi);
                     stockCode[i] = unitPlusBas;//Stocke news code
                 }
                 //Boucle génére nouvelle unité tant que plus basse que précédente
                 if (unitCodeUser > unitCodeOrdi) {
-                    previousCode[i] = unitCodeOrdi;//lR[i]=e;
-                    do {
                         //Méthode random génére news units.Borne min ordi +1 pr évité les doublons
-                        unitPlusHaut = playerObj.generCodeInt((unitCodeOrdi + 1), unitCodeUser);
-                    } while (unitPlusHaut < unitCodeOrdi);
+                        unitPlusHaut = playerObj.generCodeInt((unitCodeOrdi + 1), 9);
                     stockCode[i] = unitPlusHaut;
                 }
                 //Génére unité égales

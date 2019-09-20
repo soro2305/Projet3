@@ -59,7 +59,7 @@ public class Player {
     }
 
     //Méthode qui permet à l'ordi de générer une combi à partir des indications de sa précédente combi
-    public String[] newCodeOrdi(String codeOrdi1, String codeUser,String min1 , String max1) {
+    public String[] newCodeOrdi(String codeOrdi1, String codeUser, String min1, String max1) {
         //Initialisation Objets variables
         Parametres settingsObj = new Parametres();
         Player playerObj = new Player();
@@ -123,8 +123,8 @@ public class Player {
         return stringBuilder.toString();
     }
 
-    public String new1(String codeUser, String codeTempo,String codeOrdi) {
-        return  codeTempo;
+    public String new1(String codeUser, String codeTempo, String codeOrdi) {
+        return codeTempo;
     }
 }
 

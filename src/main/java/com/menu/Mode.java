@@ -6,7 +6,7 @@ import com.joueur.User;
 
 import java.util.ResourceBundle;
 
-public class Mode  {
+public class Mode {
     Parametres settingsObj = new Parametres();
     Menu menuObj = new Menu();
     Player userObj = new User();
@@ -18,11 +18,11 @@ public class Mode  {
     String codeTempo = "2";
     int rejouer = 0;
     int nombreUnit = settingsObj.getNombreUnit();
-    String max1 = "9999";
-    String min1 = "0000";
- //   String[][] retour =new String[nombreUnit][2];
+    String max1 = settingsObj.getMax();
+    String min1 = settingsObj.getMin();
+    //   String[][] retour =new String[nombreUnit][2];
 
-    public int tours = settingsObj.getToursTotale() ;
+    public int tours = settingsObj.getToursTotale();
 
     //Méthode du mode Challenger
     public void challenger() {
@@ -35,8 +35,8 @@ public class Mode  {
         //Infos paramètres
         System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
         System.out.println("                              Infos ");
-        System.out.println("                 Il y aura en tous "+(tours)+" manches");
-        System.out.println("            Il y aura "+ nombreUnit + " chiffres par combinaison");
+        System.out.println("                 Il y aura en tous " + (tours) + " manches");
+        System.out.println("            Il y aura " + nombreUnit + " chiffres par combinaison");
         if (settingsObj.isDevMode()) System.out.println("             Mode Dev activé L'EA a choisie : " + codeOrdi);
         System.out.println("                        Bonnes chances !!!");
         System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
@@ -57,7 +57,7 @@ public class Mode  {
                 System.out.println("\n");
                 if (i == tours) {
                     System.out.println("\n ============== GAME OVER ============== ");
-                    System.out.println("Vous avez épuisé toutes vos chances. La bonne réponse était "+codeOrdi +"\n");
+                    System.out.println("Vous avez épuisé toutes vos chances. La bonne réponse était " + codeOrdi + "\n");
                 }
 
             }
@@ -73,8 +73,8 @@ public class Mode  {
         //Infos paramètres
         System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
         System.out.println("                              Infos ");
-        System.out.println("                 Il y aura en tous "+(tours)+" manches");
-        System.out.println("            Il y aura "+ nombreUnit + " chiffres par combinaison");
+        System.out.println("                 Il y aura en tous " + (tours) + " manches");
+        System.out.println("            Il y aura " + nombreUnit + " chiffres par combinaison");
         System.out.println("                        Bonnes chances !!!");
         System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
         //Définition combinaison utilisateur
@@ -87,12 +87,15 @@ public class Mode  {
             if (codeOrdi.equals(codeUser)) {
                 System.out.println("\n");
                 System.out.println("GAME OVER l'Ordi a trouvé la solution  " + codeUser + " !!!\n\n ");//Conditions pour quitter la boucle si victoire de l'EA
-                min1 = "0000";
-                max1 = "9999";
+                max1 = settingsObj.getMax();
+                min1 = settingsObj.getMin();
                 break;
             } else {
 
                 //Formate l affichage de sortie console
+                if (settingsObj.isDevMode())
+                    System.out.println("Les bornes min, max du generateur sont --> min1 : " + min1 + " max1  : " + max1);
+
                 System.out.print("Proposition : " + codeOrdi + " -> Réponse : ");
                 //Méthode pour comparer les deux combinaisons et affiché "+-="
                 ordiObj.compare(codeOrdi, codeUser);
@@ -101,12 +104,11 @@ public class Mode  {
                 //Méthode pour générer nouvelle combinaison Ordi
 
 
-
-               // codeTempo = ordiObj.newCodeOrdi(codeOrdi, codeUser);
-               String [] retour = ordiObj.newCodeOrdi(codeUser, codeOrdi,min1,max1);
-               codeOrdi = retour [0];
-               min1 = retour [2];
-               max1  = retour [1];
+                // codeTempo = ordiObj.newCodeOrdi(codeOrdi, codeUser);
+                String[] retour = ordiObj.newCodeOrdi(codeUser, codeOrdi, min1, max1);
+                codeOrdi = retour[0];
+                min1 = retour[2];
+                max1 = retour[1];
 
 
                 System.out.println("\n");
@@ -117,11 +119,14 @@ public class Mode  {
 
             }
         }
+        max = 9999;
+        min = 0000;
         //Envoie au menu final
         rejouer = menuObj.endMenuUser();
         if (rejouer == 1) déffenseur(); //Condition pour relancer mÃªme mode
 
     }
+
     //Méthode duel chacun son tour définit une combi, le premier à trouver gagne
     public void duel() {
         String tentativeUser = "2";
@@ -132,40 +137,65 @@ public class Mode  {
         //Définition combinaison Ordi
         codeOrdi = ordiObj.generCodeString(min, max);
         //Définition tentative Ordi
-        tentativeOrdi = ordiObj.generCodeString(min,max);
+        tentativeOrdi = ordiObj.generCodeString(min, max);
+        System.out.println(" min int : " + min + " max int : " + max);
         //Infos paramètres
         System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
         System.out.println("                              Infos ");
-        System.out.println("            Il y aura "+ nombreUnit + " chiffres par combinaison");
+        System.out.println("            Il y aura " + nombreUnit + " chiffres par combinaison");
         if (settingsObj.isDevMode()) System.out.println("             Mode Dev activé L'EA a choisie : " + codeOrdi);
         System.out.println("                        Bonnes chances !!!");
         System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+        System.out.println("========================================================================================================== ");
+        System.out.println("==========================================================================================================");
 
         //Définition combinaison utilisateur
         codeUser = userObj.defineCodeUser();
-        System.out.println("Votre combinaison est : "+codeUser+"\n");
+        System.out.println("Votre combinaison est : " + codeUser + "\n");
+        System.out.println("==========================================================================================================");
+
         //Do while loop pour continuer tant qu il n'y a pas de vainqueur
         do {
+            System.out.println("==========================================================================================================");
+
             tentativeUser = userObj.attemptUser();
-            if (tentativeUser.equals(codeOrdi)){//compare si les réponses sont égales
+            if (tentativeUser.equals(codeOrdi)) {//compare si les réponses sont égales
                 System.out.println("\n");
-                System.out.println("Bravo la réponse était : "+codeOrdi+" c'est GAGNÉ !!!");
+                System.out.println("Bravo la réponse était : " + codeOrdi + " c'est GAGNÉ !!!");
+                max1 = settingsObj.getMax();
+                min1 = settingsObj.getMin();
                 sortie = true;// Permets de sortir de la boucle en cas de Victoire
-            }else {
+            } else {
                 System.out.print("Votre proposition est  " + tentativeUser + " -> Indication : ");
                 ordiObj.compare(tentativeUser, codeOrdi);
                 System.out.println();
                 if (tentativeOrdi.equals(codeUser)) {//compare si les réponses sont égales
-                    System.out.println("L'Ordi a trouvé : " + codeUser + " GAME OVER !!!");
+                    System.out.println("\n L'Ordi a trouvé : " + codeUser + " GAME OVER !!!");
+                    max1 = settingsObj.getMax();
+                    min1 = settingsObj.getMin();
                     sortie = true;// Permets de sortir de la boucle en cas de défaite
 
                 }
+                if (settingsObj.isDevMode())
+                    System.out.println("Les bornes min, max du generateur sont --> min1 : " + min1 + " max1  : " + max1);
+
                 System.out.print("La proposition de l'Ordi est  : " + tentativeOrdi + " -> Indication : ");
                 ordiObj.compare(tentativeOrdi, codeUser);
                 System.out.println();
-                tentativeOrdi = ordiObj.newCodeOrdi(tentativeOrdi, codeUser);//Définit nouvelles combis Ordi baser sur la précédente
+
+                String[] retourDuel = ordiObj.newCodeOrdi(codeUser, tentativeOrdi, min1, max1);//Définit nouvelles combis Ordi baser sur la précédente
+                tentativeOrdi = retourDuel[0];
+                min1 = retourDuel[2];
+                max1 = retourDuel[1];
+                System.out.println("==========================================================================================================");
+
             }
-        }while (!sortie);
+
+        } while (!sortie);
+        max1 = settingsObj.getMax();
+        min1 = settingsObj.getMin();
+        max = 9999;
+        min = 0000;
         //Permet de rejouer même mode
         rejouer = menuObj.endMenuUser();
         if (rejouer == 1) duel(); //Condition pour relancer même mode

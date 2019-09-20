@@ -7,7 +7,7 @@ public class Ordi extends Player { //Méthode qui génère un code aléatoire St
         return newCode; //Retour combinaison String
     }
 
-    //Génére news unit int
+    //Génère news unit int
     public int generCodeInt(int min, int max) {
         int newsUnit = genere.nextInt((max - min) + 1) + min; //Classe Random utiliser pour définir les bornes max min de la combinaison
         return newsUnit; //Retour combinaison
@@ -19,30 +19,28 @@ public class Ordi extends Player { //Méthode qui génère un code aléatoire St
         return saisieUser.nextLine();// Retourne saisie du Scanner
     }
 
-    public String []newCodeOrdi(String codeUser, String codeOrdi1, String min1 , String max1 ) {
-     //   System.out.println("\n( Arriver Methode ) \n code max : "+max1+ " \n code min : "+min1+ "\n code ordi precedant : "+codeOrdi1);
-
+    public String[] newCodeOrdi(String codeUser, String codeOrdi1, String min1, String max1) {
+        //   System.out.println("\n( Arriver Methode ) \n code max : "+max1+ " \n code min : "+min1+ "\n code ordi precedant : "+codeOrdi1);
         //Initialisation Objets variables
         Player playerObj = new Player();
-        int unitPlusHaut = 0;
-        int unitPlusBas = 0;
-        int unitEgale;
+        int unitPlusHaut;
+        int unitPlusBas;
         int nombreUnit = 4;
         //Array pr stocker current en int et combi final en String
         int[] previousMin = new int[4];//Stocke ancien code Min
         int[] previousMax = new int[4];//Stocke ancien code Max
         int[] stockCode = new int[nombreUnit];//Stocke news code int
-
-
-        String [] retour = new String[3];
+        //Array pr stocker les réponses ( range min max + news combi )
         String newCode[] = new String[stockCode.length];//Stocke news code int
         String newMax[] = new String[stockCode.length];
         String newMin[] = new String[stockCode.length];
+        //Array pr retourné les réponses ( range min max + news combi )
+        String[] retour = new String[3];
 
         //Reponse final format String
         String newCodeString = "";
-        String  newCodeMax = "";
-        String newCodeMin  = "";
+        String newCodeMax = "";
+        String newCodeMin = "";
         //Deux boucles pour séparés caractères des code Ordi et User
         for (int i = 0; i < codeOrdi1.length(); i++) {
             for (int i2 = 0; i < codeUser.length(); i++) {
@@ -56,8 +54,8 @@ public class Ordi extends Player { //Méthode qui génère un code aléatoire St
                         //Conditions pour comparer si les futur unités combi Ordi doivent êtres "-+="
                         if (unitCodeUser < unitCodeOrdi) {
                             //Méthode random génére news units.Borne max ordi -1 pr évité les doublons
-                            unitPlusBas = playerObj.generCodeInt((unitCodeMin+1), (unitCodeOrdi-1));
-                          //  System.out.println("Bornes generateurs "+unitCodeMin + ", "+ unitCodeOrdi+ " ==== "+ unitPlusBas);
+                            unitPlusBas = playerObj.generCodeInt((unitCodeMin + 1), (unitCodeOrdi - 1));
+                            //  System.out.println("Bornes generateurs "+unitCodeMin + ", "+ unitCodeOrdi+ " ==== "+ unitPlusBas);
                             stockCode[i] = unitPlusBas;//Stocke news code
                             previousMax[i] = unitCodeOrdi;
                             previousMin[i] = unitCodeMin;
@@ -67,8 +65,8 @@ public class Ordi extends Player { //Méthode qui génère un code aléatoire St
                         //Boucle génére nouvelle unité tant que plus basse que précédente
                         if (unitCodeUser > unitCodeOrdi) {
                             //Méthode random génére news units.Borne min ordi +1 pr évité les doublons
-                            unitPlusHaut = playerObj.generCodeInt((unitCodeOrdi+1), (unitCodeMax-1));
-                         //   System.out.println("Bornes generateurs "+unitCodeOrdi + ", "+ unitCodeMax+" ==== " +unitPlusHaut);
+                            unitPlusHaut = playerObj.generCodeInt((unitCodeOrdi + 1), (unitCodeMax - 1));
+                            //   System.out.println("Bornes generateurs "+unitCodeOrdi + ", "+ unitCodeMax+" ==== " +unitPlusHaut);
 
                             stockCode[i] = unitPlusHaut;
                             previousMin[i] = unitCodeOrdi;
@@ -78,17 +76,13 @@ public class Ordi extends Player { //Méthode qui génère un code aléatoire St
                         }
                         //Génére unité égales
                         if (unitCodeUser == unitCodeOrdi) {
-                            //  previousCode[i] = unitCodeOrdi;
-                          //  unitEgale = playerObj.generCodeInt(unitCodeOrdi, unitCodeOrdi);
-
                             stockCode[i] = unitCodeOrdi;
-                          previousMax[i]= unitCodeOrdi;
-                          previousMin[i]= unitCodeOrdi;
-                          //  System.out.println("Bornes generateurs "+unitCodeOrdi + ", "+ unitCodeOrdi+" ==== " +unitCodeOrdi);
-
+                            previousMax[i] = unitCodeOrdi;
+                            previousMin[i] = unitCodeOrdi;
                         }
 
-                   }}
+                    }
+                }
             }
         }
 
@@ -101,12 +95,12 @@ public class Ordi extends Player { //Méthode qui génère un code aléatoire St
         }
         //Transforme array String en String
         newCodeString = Player.ArrayToString(newCode);
-          newCodeMax = Player.ArrayToString(newMax);
-         newCodeMin  = Player.ArrayToString(newMin);
-         retour [0] = newCodeString;
-         retour [1] = newCodeMax;
-         retour [2] = newCodeMin;
-      //  System.out.println("\n  ( Fin Methode ) \n code max : "+newCodeMax+ " \n code min : "+newCodeMin+"\n new code ordi : "+newCodeString);
+        newCodeMax = Player.ArrayToString(newMax);
+        newCodeMin = Player.ArrayToString(newMin);
+        retour[0] = newCodeString;
+        retour[1] = newCodeMax;
+        retour[2] = newCodeMin;
+        //  System.out.println("\n  ( Fin Methode ) \n code max : "+newCodeMax+ " \n code min : "+newCodeMin+"\n new code ordi : "+newCodeString);
         //retour nouvelle combinaison en String
         return retour;
     }

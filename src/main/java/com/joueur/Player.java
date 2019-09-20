@@ -59,15 +59,18 @@ public class Player {
     }
 
     //Méthode qui permet à l'ordi de générer une combi à partir des indications de sa précédente combi
-    public String newCodeOrdi(String codeOrdi1, String codeUser) {
+    public String[] newCodeOrdi(String codeOrdi1, String codeUser,String min1 , String max1) {
         //Initialisation Objets variables
         Parametres settingsObj = new Parametres();
         Player playerObj = new Player();
         int unitPlusHaut = 0;
         int unitPlusBas = 0;
+        String[] retour = new String[2];
+
         int nombreUnit = settingsObj.getNombreUnit();//Définit le nombre de chiffres combi selon les réglages paramètres
         //Array pr stocker current en int et combi final en String
         int[] stockCode = new int[nombreUnit];//Stocke news code int
+
         String newCode[] = new String[stockCode.length];//Stocke news code int en String
         //Reponse final format String
         String newCodeString = "";
@@ -108,7 +111,7 @@ public class Player {
         //Transforme array String en String
         newCodeString = Player.ArrayToString(newCode);
         //retour nouvelle combinaison en String
-        return newCodeString;
+        return retour;
     }
 
     //Méthode qui converti un Array de String en String

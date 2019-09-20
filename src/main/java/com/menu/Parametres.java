@@ -7,8 +7,8 @@ import java.util.Scanner;
 public class Parametres {
     private ResourceBundle properties = ResourceBundle.getBundle("params");
     private int toursTotale = Integer.parseInt(properties.getString("toursTotale"));
-    private int min = Integer.parseInt(properties.getString("minGenere"));
-    private int max = Integer.parseInt(properties.getString("maxGenere"));
+    private String min = properties.getString("minGenere");
+    private String max = properties.getString("maxGenere");
     private int nombreUnit = Integer.parseInt(properties.getString("codeNumbers"));
     private boolean devMode = Boolean.parseBoolean(properties.getString("devMode"));
 
@@ -16,11 +16,11 @@ public class Parametres {
         return toursTotale;
     }
 
-    public int getMin() {
+    public String getMin() {
         return min;
     }
 
-    public int getMax() {
+    public String getMax() {
         return max;
     }
 

@@ -11,13 +11,17 @@ public class Mode  {
     Menu menuObj = new Menu();
     Player userObj = new User();
     Player ordiObj = new Ordi();
-    int max = settingsObj.getMax();
-    int min = settingsObj.getMin();
+    int max = 9999;
+    int min = 0000;
     String codeUser = "";
     String codeOrdi = "1";
     String codeTempo = "2";
     int rejouer = 0;
     int nombreUnit = settingsObj.getNombreUnit();
+    String max1 = "9999";
+    String min1 = "0000";
+ //   String[][] retour =new String[nombreUnit][2];
+
     public int tours = settingsObj.getToursTotale() ;
 
     //Méthode du mode Challenger
@@ -83,6 +87,8 @@ public class Mode  {
             if (codeOrdi.equals(codeUser)) {
                 System.out.println("\n");
                 System.out.println("GAME OVER l'Ordi a trouvé la solution  " + codeUser + " !!!\n\n ");//Conditions pour quitter la boucle si victoire de l'EA
+                min1 = "0000";
+                max1 = "9999";
                 break;
             } else {
 
@@ -90,13 +96,19 @@ public class Mode  {
                 System.out.print("Proposition : " + codeOrdi + " -> Réponse : ");
                 //Méthode pour comparer les deux combinaisons et affiché "+-="
                 ordiObj.compare(codeOrdi, codeUser);
+                System.out.println("\n");
+
                 //Méthode pour générer nouvelle combinaison Ordi
 
-               // codeTempo = ordiObj.newCodeOrdi(codeOrdi, codeUser);
-                codeOrdi = ordiObj.newCodeOrdi(codeUser, codeOrdi);
 
-                //  System.out.println("\n"+codeTempo);
-                //   codeOrdi = ordiObj.new1(codeTempo,codeOrdi,codeUser);
+
+               // codeTempo = ordiObj.newCodeOrdi(codeOrdi, codeUser);
+               String [] retour = ordiObj.newCodeOrdi(codeUser, codeOrdi,min1,max1);
+               codeOrdi = retour [0];
+               min1 = retour [2];
+               max1  = retour [1];
+
+
                 System.out.println("\n");
                 //Affiche Game over quand nombres de tours épuisés
                 if (i == tours) {

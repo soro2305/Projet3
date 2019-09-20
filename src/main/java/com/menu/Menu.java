@@ -37,7 +37,7 @@ public class Menu {
             case 'C'://====== Choix C envoie méthode duel =======
                 System.out.println("=========================== Bienvenue dans le mode Duel ================================== \n");
                 System.out.println("Le premier à trouver la combinaison adverse gagne la partie !!! \n");//Pas de manches dans ce mode
-                choixObj.duel();
+               // choixObj.duel();
                 break;
             case 'D'://====== Choix D envoie méthode settings =======
                 System.out.println("=========================== Bienvenue dans les Paramétres ================================== \n");

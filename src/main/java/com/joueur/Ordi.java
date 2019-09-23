@@ -8,6 +8,7 @@ public class Ordi extends Player {
 
     //Création d'objets settings pr importé les paramètres utiles
     Parametres settingsObj = new Parametres();
+
     //Méthode qui génère un code aléatoire String
     public String generCodeString(int min, int max) {
         int stockReponse = genere.nextInt((max - min) + 1) + min; //Classe Random utiliser pour définir les bornes max min de la combinaison
@@ -25,9 +26,9 @@ public class Ordi extends Player {
     public String defineCodeUser() {
         System.out.println("Veuillez définir votre combinaison");
         String result = saisieUser.nextLine();
-        if (result.length()==0){
+        if (result.length() == 0) {
             logger.warn("Attention code utilisateur recuperer est une chaine vide");
-        }else if (result.length()>100){
+        } else if (result.length() > 100) {
             logger.warn("Attention code utilisateur au dessus de 100 chiffres ");
         }
 

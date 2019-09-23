@@ -7,22 +7,22 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.xml.DOMConfigurator;
 
 public class Main {
-
+    //Initialisation du logger pour main
     private static Logger logger = Logger.getLogger(Main.class);
 
     public static void main(String[] args) {
-        try {
-            DOMConfigurator.configure("resources/log4j.xml");
+        try {//Try Cath englobe  toute exception comprise dans l'application
+            DOMConfigurator.configure("resources/log4j.xml");//Envoie la configue sur le fichier log4j.xml
             logger.info("this is information message");
             System.out.println("\n ============================= Bienvenue dans Guess My Code !!! ========================== \n");
             Menu start = new Menu();
-            start.startMenuUser();
-            System.out.println("Merci à bientôt !");
+            start.startMenuUser();//Envoie au menu principal
+            System.out.println("Merci à bientôt !");//Message perçu quand on quitte l'application
             System.out.println();
-        }catch (Exception e){
+        } catch (Exception e) {//Catch au plus haut niveau les exceptions comprises dans l'application
             System.out.println("");
-            logger.error("Une erreur inconnue est survenue ("+e.getClass()+")");
-            e.printStackTrace();
+            logger.error("Une erreur inconnue est survenue (" + e.getClass() + ")");//Affiche la class de l'exception
+            e.printStackTrace();//Affiche le StackTrace de l'exception
         }
     }
 }

@@ -9,27 +9,28 @@ public class Menu {
 
 
     public void startMenuUser() {
+        logger.info("Arriver dans le menu startMenu");
         //Initialisation des instances
         boolean isValid = false;
         Mode choixObj = new Mode();
         Scanner input = new Scanner(System.in);
         char option = '\0';
-         logger.info("Chargement du menu principal");
         //===== Menu d accueil ======
         while (isValid == false) {
             System.out.println("\n");
             System.out.println("Menu principal");
-            System.out.println("Entre une lettre correspondant à l'option désirée");
+            System.out.println("Entré une lettre correspondant à l'option désirée");
             System.out.println("A-Challenger");
             System.out.println("B-Déffenseur");
             System.out.println("C-Duel");
             System.out.println("D-Quitter");
+            logger.info("Chargement du menu principal");
 
             logger.debug("Récupération de l'entrée clavier ");
             option = input.next().charAt(0); // ===== Initialisation de la var char options afin de récupérer le 1er caractère saisie =======
             System.out.println("\n");
             // Utilisation de switch contient les choix du menu
-            logger.debug("Paramètres options : " + option);
+            logger.debug("Choix options entree par l utilisateur : " + option);
             switch (option) {
                 case 'A'://===== Choix A envoie méthode challenger ======
                     logger.info("Choix du mode Challenger");
@@ -44,54 +45,69 @@ public class Menu {
                     isValid = true;
                     break;
                 case 'C'://====== Choix C envoie méthode duel =======
+                    logger.info("Choix du mode duel");
                     System.out.println("=========================== Bienvenue dans le mode Duel ================================== \n");
                     System.out.println("Le premier à trouver la combinaison adverse gagne la partie !!! \n");//Pas de manches dans ce mode
                     choixObj.duel();
                     isValid = true;
                     break;
                 case 'D'://====== Choix E termine le programme =======
+                    logger.info("Choix quitter l application");
                     System.out.println("Vous avez choisi de Quitter");
                     isValid = true;
                     break;
                 //Message en cas d'entrée invalide
                 default:
-                    System.out.println("Entrer invalide ! Essayer encore");
-                     isValid = false;
+                    logger.info("Choix default activer");
+                    logger.error("Entrée invalide vérifier que votre réponse soit bien une des lettres majuscule");
+                    isValid = false;
             }
 
         }
     }
 
     //Menu affiché en fin de partie
-    public int endMenuUser() {
+    public boolean endMenuUser() {
+        logger.info("Arriver dans le menu endMenu");
+        //Initialisation des instances
         Scanner input = new Scanner(System.in);
-        int rejouer = 0;
-        System.out.println("\n");
-        System.out.println("Menu Express !!!");
-        System.out.println("Entre une lettre correspondant à l'option désirée ");
-        System.out.println("A-Rejouer même mode");
-        System.out.println("B-Retour menu principale");
-        System.out.println("C-Quitter l'application");
-        char option2 = '\1';
-        option2 = input.next().charAt(0); // Initialisation des options afin de récupérer le 1er caractère saisie
-        switch (option2) {
+        boolean isValid = false;//Conditions pour vérifier la saisie de l'utilisateur
+        boolean rejouer = false;//Conditions pour relancer une partie
+         while (isValid == false) {
+             System.out.println("\n");
+             System.out.println("Menu Express !!!");
+             System.out.println("Entre une lettre correspondant à l'option désirée ");
+             System.out.println("A-Rejouer même mode");
+             System.out.println("B-Retour menu principale");
+             System.out.println("C-Quitter l'application");
+             char option2 = '\1';
+             option2 = input.next().charAt(0); // Initialisation des options afin de récupérer le 1er caractère saisie par l'utilisateur
+             logger.debug("Choix options entree par l'utilisateur : " + option2);
+             switch (option2) {
 
-            case 'A':
-                rejouer = 1;//Que rejouer soit égale à 1 est la condition pour relancer le même mode
+                 case 'A':
+                     rejouer = true;//Que rejouer soit égale à 1 est la condition pour relancer le même mode
+                     isValid = true;
+                     break;
+                 case 'B':
+                     System.out.println("\n \n \n ");
+                     startMenuUser();//Renvoie au menu principal
+                     isValid = true;
+                 case 'C':
+                     //Fait quitter application
+                     System.out.println("\n \n \n ");
+                     isValid = true;
+                     break;
+                 default:
+                     logger.error("Entrée invalide vérifier que votre réponse soit bien une des lettres majuscule");
+                     isValid = false;//En cas d'entrer invalide perpétue la boucle
+             }
+             System.out.println(" \n ");
 
-                break;
-            case 'B':
-                System.out.println("\n \n \n ");
-                startMenuUser();
-            case 'C':
-                System.out.println("\n \n \n ");
-                break;
-            default:
-                System.out.println("Entrer invalide !");
-        }
-        System.out.println("\n \n \n ");
-        return rejouer;
-    }
-
+         }
+        return rejouer;// Retourne rejouer  égale à true pour relancer le même mode
 
 }
+}
+
+

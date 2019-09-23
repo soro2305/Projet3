@@ -9,37 +9,36 @@ import java.util.Scanner;
 public class Player {
     //Initialisation des instances
     private static Logger logger = Logger.getLogger(Player.class);
-
     Random genere = new Random();
     Scanner saisieUser = new Scanner(System.in);
 
     public void compare(String sP, String sE) {
 
-        try {
-        //Deux boucles pour convertir chaque caractère des args en int.
-        for (int i = 0; i < sE.length(); i++) {
-            for (int i2 = 0; i < sP.length(); i++) {
+        try {//Handle L'exception OutOfBounds si mauvais paramétrage du fichier properties
+            //Deux boucles pour convertir chaque caractère des args en int.
+            for (int i = 0; i < sE.length(); i++) {
+                for (int i2 = 0; i < sP.length(); i++) {
 
-                int b = Character.getNumericValue(sP.charAt(i));
-                int a = Character.getNumericValue(sE.charAt(i));
+                    int b = Character.getNumericValue(sP.charAt(i));
+                    int a = Character.getNumericValue(sE.charAt(i));
 
                     //Conditions pour comparer et définir l'indication à retourner
-                if (a < b) {
-                    System.out.print("-");
-                }
-                if (a > b) {
-                    System.out.print("+");
-                }
-                if (a == b) {
-                    System.out.print("=");
+                    if (a < b) {
+                        System.out.print("-");
+                    }
+                    if (a > b) {
+                        System.out.print("+");
+                    }
+                    if (a == b) {
+                        System.out.print("=");
+                    }
                 }
             }
-        }
-        } catch (StringIndexOutOfBoundsException e){
+        } catch (StringIndexOutOfBoundsException e) {//Handle L'exception OutOfBounds si mauvais paramétrage du fichier properties
             System.out.println();
             logger.error("Le parametres properties 'minGenere' dois etre egale en nombres de chiffres au parametres 'maxGenere'");
             logger.error("Le nombres de chiffres du parametres properties 'maxGenere' doit correspondre au nombre du parametres 'codeNumbers'");
-            System.exit(-1);
+            System.exit(-1);//Quitte l'application en conséquence de l'exception
 
         }
     }
@@ -133,10 +132,6 @@ public class Player {
             stringBuilder.append(strArray[i]);
         }
         return stringBuilder.toString();
-    }
-
-    public String new1(String codeUser, String codeTempo, String codeOrdi) {
-        return codeTempo;
     }
 }
 

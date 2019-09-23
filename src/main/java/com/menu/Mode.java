@@ -3,8 +3,10 @@ package com.menu;
 import com.joueur.Ordi;
 import com.joueur.Player;
 import com.joueur.User;
+import org.apache.log4j.Logger;
 
 public class Mode {
+    private static Logger logger = Logger.getLogger(Mode.class);
     Parametres settingsObj = new Parametres();
     Menu menuObj = new Menu();
     Player userObj = new User();
@@ -12,7 +14,7 @@ public class Mode {
     String codeUser = "";
     String codeOrdi = "1";
     String codeTempo = "2";
-    int rejouer = 0;
+    boolean rejouer = false;
     int nombreUnit = settingsObj.getNombreUnit();
     String maxString = settingsObj.getMax();
     String minString = settingsObj.getMin();
@@ -24,13 +26,14 @@ public class Mode {
 
     //Méthode du mode Challenger
     public void challenger() {
+        logger.info("Arriver dans le mode Challenger");
         //Initialisations des instances
         //conteurs for loop
         int i;
         int j;
         //Création combinaison EA
         codeOrdi = ordiObj.generCodeString(minInt, maxInt);
-        //Infos paramètres
+        //Infos qui indique  les valeurs en fonction des paramètres
         System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
         System.out.println("                              Infos ");
         System.out.println("                 Il y aura en tous " + (tours) + " manches");
@@ -62,13 +65,14 @@ public class Mode {
         }
         //Envoie au menu final
         rejouer = menuObj.endMenuUser();
-        if (rejouer == 1) challenger(); //Condition pour relancer même mode
+        if (rejouer == true) challenger(); //Condition pour relancer même mode
     }
 
     //Méthode du mode Deffenseur
     public void deffenseur() {
+        logger.info("Arriver dans le mode Déffenseur");
         //  int tours = settingsObj.tours;//Nombres de tours de la partie
-        //Infos paramètres
+        //Infos qui indique  les valeurs en fonction des paramètres
         System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
         System.out.println("                              Infos ");
         System.out.println("                 Il y aura en tous " + (tours) + " manches");
@@ -93,7 +97,7 @@ public class Mode {
 
                 //Formate l affichage de sortie console
                 if (settingsObj.isDevMode())
-                    System.out.println("Les bornes min, max du generateur sont --> min1 : " + minString + " max1  : " + maxString);
+                    logger.info("Les bornes min, max du generateur sont --> min1 : " + minString + " max1  : " + maxString);
 
                 System.out.print("Proposition : " + codeOrdi + " -> Réponse : ");
                 //Méthode pour comparer les deux combinaisons et affiché "+-="
@@ -121,27 +125,28 @@ public class Mode {
         //Réinitialise ses valeurs en cas de nouvelle partie
         maxString = settingsObj.getMax();
         minString = settingsObj.getMin();
-         maxInt = Integer.parseInt(maxString);
-         minInt = Integer.parseInt(minString);
+        maxInt = Integer.parseInt(maxString);
+        minInt = Integer.parseInt(minString);
         //Envoie au menu final
         rejouer = menuObj.endMenuUser();
-        if (rejouer == 1) deffenseur(); //Condition pour relancer mÃªme mode
+        if (rejouer == true) deffenseur(); //Condition pour relancer mÃªme mode
 
     }
 
     //Méthode duel chacun son tour définit une combi, le premier à trouver gagne
     public void duel() {
+        logger.info("Arriver dans le mode Duel");
         String tentativeUser = "2";
         String tentativeOrdi = "3";
         boolean sortie = false;
-        int rejouer = 0;
+        boolean rejouer = false;
 
         //Définition combinaison Ordi
         codeOrdi = ordiObj.generCodeString(minInt, maxInt);
         //Définition tentative Ordi
         tentativeOrdi = ordiObj.generCodeString(minInt, maxInt);
         System.out.println(" min int : " + maxInt + " max int : " + maxInt);
-        //Infos paramètres
+        //Infos qui indique  les valeurs en fonction des paramètres
         System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
         System.out.println("                              Infos ");
         System.out.println("            Il y aura " + nombreUnit + " chiffres par combinaison");
@@ -166,6 +171,8 @@ public class Mode {
                 System.out.println("Bravo la réponse était : " + codeOrdi + " c'est GAGNÉ !!!");
                 maxString = settingsObj.getMax();
                 minString = settingsObj.getMin();
+                maxInt = Integer.parseInt(maxString);
+                minInt = Integer.parseInt(minString);
                 sortie = true;// Permets de sortir de la boucle en cas de Victoire
             } else {
                 System.out.print("Votre proposition est  " + tentativeUser + " -> Indication : ");
@@ -176,12 +183,15 @@ public class Mode {
                     //Réinitialise ses valeurs en cas de nouvelle partie
                     maxString = settingsObj.getMax();
                     minString = settingsObj.getMin();
+                    maxInt = Integer.parseInt(maxString);
+                    minInt = Integer.parseInt(minString);
                     sortie = true;// Permets de sortir de la boucle en cas de défaite
                     break;
                 }
-                if (settingsObj.isDevMode())
-                    System.out.println("Les bornes min, max du generateur sont --> min1 : " + minString + " max1  : " + maxString);
-
+                if (settingsObj.isDevMode()) {
+                    logger.info("Les bornes min, max du generateur sont --> minimum : " + minString + " maximum  : " + maxString);
+                    logger.info("             Mode Dev activé L'EA a choisie : " + codeOrdi);
+                }
                 System.out.print("La proposition de l'Ordi est  : " + tentativeOrdi + " -> Indication : ");
                 ordiObj.compare(tentativeOrdi, codeUser);
                 System.out.println();
@@ -199,11 +209,11 @@ public class Mode {
         //Réinitialise ses valeurs par défaults en cas de nouvelle partie
         maxString = settingsObj.getMax();
         minString = settingsObj.getMin();
-         maxInt = Integer.parseInt(maxString);
-         minInt = Integer.parseInt(minString);
+        maxInt = Integer.parseInt(maxString);
+        minInt = Integer.parseInt(minString);
         //Permet de rejouer même mode
         rejouer = menuObj.endMenuUser();
-        if (rejouer == 1) duel(); //Condition pour relancer même mode
+        if (rejouer == true) duel(); //Condition pour relancer même mode
     }
 
 }

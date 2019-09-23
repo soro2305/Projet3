@@ -1,0 +1,317 @@
+2019-09-22 20:13:34 INFO  Main:15 - this is information message
+2019-09-22 20:52:25 INFO  Main:14 - this is information message
+2019-09-22 21:01:29 INFO  Main:14 - this is information message
+2019-09-22 21:02:20 INFO  Main:14 - this is information message
+2019-09-22 21:02:20 INFO  Menu:16 - Chargement du menu principal
+2019-09-22 21:03:45 INFO  Main:14 - this is information message
+2019-09-22 21:24:45 INFO  Main:14 - this is information message
+2019-09-22 21:24:45 ERROR Parametres:28 - Le paramètres toursTotale dans properties n'est pas un nombre. La valeurs par défault de 10 a etais mis a la place
+2019-09-22 21:24:45 ERROR Parametres:28 - Le paramètres toursTotale dans properties n'est pas un nombre. La valeurs par défault de 10 a etais mis a la place
+2019-09-22 21:24:45 INFO  Menu:16 - Chargement du menu principal
+2019-09-22 21:25:23 INFO  Main:14 - this is information message
+2019-09-22 21:31:56 INFO  Main:14 - this is information message
+2019-09-22 21:31:56 ERROR Parametres:28 - Le fichier properties est introuvable 
+2019-09-22 21:33:01 INFO  Main:14 - this is information message
+2019-09-22 21:33:01 ERROR Parametres:28 - Le fichier properties est introuvable 
+2019-09-22 21:42:53 INFO  Main:18 - this is information message
+2019-09-22 21:42:53 ERROR Main:25 - Une erreur inconnue est survenue.class java.lang.NumberFormatException
+2019-09-22 21:43:55 INFO  Main:18 - this is information message
+2019-09-22 21:43:55 INFO  Menu:16 - Chargement du menu principal
+2019-09-22 21:44:04 INFO  Main:18 - this is information message
+2019-09-22 21:44:04 ERROR Main:25 - Une erreur inconnue est survenue (class java.lang.NumberFormatException)
+2019-09-22 21:58:31 INFO  Main:16 - this is information message
+2019-09-22 21:58:31 INFO  Menu:18 - Chargement du menu principal
+2019-09-22 21:58:49 INFO  Menu:42 - Choix du mode Déffenseur
+2019-09-22 21:58:59 INFO  Menu:18 - Chargement du menu principal
+2019-09-22 22:00:48 INFO  Main:16 - this is information message
+2019-09-22 22:00:48 INFO  Menu:17 - Chargement du menu principal
+2019-09-22 22:00:51 INFO  Menu:41 - Choix du mode Déffenseur
+2019-09-22 22:04:55 INFO  Main:16 - this is information message
+2019-09-22 22:04:55 INFO  Menu:17 - Chargement du menu principal
+2019-09-22 22:05:02 INFO  Menu:41 - Choix du mode Déffenseur
+2019-09-22 23:01:04 INFO  Main:16 - this is information message
+2019-09-22 23:01:04 INFO  Menu:17 - Chargement du menu principal
+2019-09-22 23:01:37 INFO  Main:16 - this is information message
+2019-09-22 23:01:37 INFO  Menu:17 - Chargement du menu principal
+2019-09-22 23:04:01 INFO  Main:16 - this is information message
+2019-09-22 23:04:01 INFO  Menu:17 - Chargement du menu principal
+2019-09-22 23:04:05 INFO  Menu:41 - Choix du mode Déffenseur
+2019-09-22 23:04:30 INFO  Main:16 - this is information message
+2019-09-22 23:04:30 INFO  Menu:17 - Chargement du menu principal
+2019-09-22 23:04:33 INFO  Menu:41 - Choix du mode Déffenseur
+2019-09-22 23:05:47 INFO  Main:16 - this is information message
+2019-09-22 23:05:47 INFO  Menu:17 - Chargement du menu principal
+2019-09-22 23:05:52 INFO  Menu:41 - Choix du mode Déffenseur
+2019-09-22 23:08:04 INFO  Main:16 - this is information message
+2019-09-22 23:08:04 INFO  Menu:17 - Chargement du menu principal
+2019-09-22 23:08:07 INFO  Menu:41 - Choix du mode Déffenseur
+2019-09-22 23:08:08 ERROR Main:23 - Une erreur inconnue est survenue (class java.lang.StringIndexOutOfBoundsException)
+2019-09-22 23:13:51 INFO  Main:16 - this is information message
+2019-09-22 23:13:51 INFO  Menu:17 - Chargement du menu principal
+2019-09-22 23:13:57 INFO  Menu:41 - Choix du mode Déffenseur
+2019-09-22 23:13:59 ERROR Main:23 - Une erreur inconnue est survenue (class java.lang.StringIndexOutOfBoundsException)
+2019-09-22 23:14:46 INFO  Main:16 - this is information message
+2019-09-22 23:14:46 INFO  Menu:17 - Chargement du menu principal
+2019-09-22 23:14:49 INFO  Menu:41 - Choix du mode Déffenseur
+2019-09-22 23:14:51 ERROR Main:23 - Une erreur inconnue est survenue (class java.lang.StringIndexOutOfBoundsException)
+2019-09-22 23:15:25 INFO  Main:16 - this is information message
+2019-09-22 23:15:25 INFO  Menu:17 - Chargement du menu principal
+2019-09-22 23:15:32 INFO  Menu:41 - Choix du mode Déffenseur
+2019-09-22 23:15:35 ERROR Main:23 - Une erreur inconnue est survenue (class java.lang.ArrayIndexOutOfBoundsException)
+2019-09-22 23:15:51 INFO  Main:16 - this is information message
+2019-09-22 23:15:51 INFO  Menu:17 - Chargement du menu principal
+2019-09-22 23:15:54 INFO  Menu:41 - Choix du mode Déffenseur
+2019-09-22 23:28:02 INFO  Main:16 - this is information message
+2019-09-22 23:28:02 INFO  Menu:17 - Chargement du menu principal
+2019-09-22 23:28:05 INFO  Menu:41 - Choix du mode Déffenseur
+2019-09-22 23:28:08 ERROR Main:23 - Une erreur inconnue est survenue (class java.lang.StringIndexOutOfBoundsException)
+2019-09-22 23:30:16 INFO  Main:16 - this is information message
+2019-09-22 23:30:16 INFO  Menu:17 - Chargement du menu principal
+2019-09-22 23:30:21 INFO  Menu:41 - Choix du mode Déffenseur
+2019-09-22 23:30:22 ERROR Main:23 - Une erreur inconnue est survenue (class java.lang.StringIndexOutOfBoundsException)
+2019-09-22 23:31:29 INFO  Main:16 - this is information message
+2019-09-22 23:31:29 INFO  Menu:17 - Chargement du menu principal
+2019-09-22 23:31:32 INFO  Menu:41 - Choix du mode Déffenseur
+2019-09-22 23:31:33 ERROR Main:23 - Une erreur inconnue est survenue (class java.lang.StringIndexOutOfBoundsException)
+2019-09-22 23:32:30 INFO  Main:16 - this is information message
+2019-09-22 23:32:30 INFO  Menu:17 - Chargement du menu principal
+2019-09-22 23:32:36 INFO  Menu:41 - Choix du mode Déffenseur
+2019-09-22 23:32:38 ERROR Main:23 - Une erreur inconnue est survenue (class java.lang.StringIndexOutOfBoundsException)
+2019-09-22 23:40:44 INFO  Main:16 - this is information message
+2019-09-22 23:40:44 INFO  Menu:17 - Chargement du menu principal
+2019-09-22 23:40:50 INFO  Menu:41 - Choix du mode Déffenseur
+2019-09-22 23:40:52 ERROR Player:39 - Le parametres minGenere dois etre egale en nombres de chiffres que maxGenere
+2019-09-22 23:40:52 ERROR Player:40 - Le nombres de chiffres de maxGenere doit correspondre au nombre du parametres codeNumbers
+2019-09-22 23:40:52 ERROR Main:24 - Une erreur inconnue est survenue (class java.lang.StringIndexOutOfBoundsException)
+2019-09-22 23:41:33 INFO  Main:16 - this is information message
+2019-09-22 23:41:33 INFO  Menu:17 - Chargement du menu principal
+2019-09-22 23:41:37 INFO  Menu:41 - Choix du mode Déffenseur
+2019-09-22 23:41:39 ERROR Main:24 - Une erreur inconnue est survenue (class java.lang.StringIndexOutOfBoundsException)
+2019-09-22 23:42:31 INFO  Main:16 - this is information message
+2019-09-22 23:42:31 INFO  Menu:17 - Chargement du menu principal
+2019-09-22 23:42:34 INFO  Menu:41 - Choix du mode Déffenseur
+2019-09-22 23:42:35 ERROR Player:39 - Le parametres minGenere dois etre egale en nombres de chiffres que maxGenere
+2019-09-22 23:42:35 ERROR Player:40 - Le nombres de chiffres de maxGenere doit correspondre au nombre du parametres codeNumbers
+2019-09-22 23:43:04 INFO  Main:16 - this is information message
+2019-09-22 23:43:04 INFO  Menu:17 - Chargement du menu principal
+2019-09-22 23:43:07 INFO  Menu:41 - Choix du mode Déffenseur
+2019-09-22 23:43:09 ERROR Player:40 - Le parametres minGenere dois etre egale en nombres de chiffres que maxGenere
+2019-09-22 23:43:09 ERROR Player:41 - Le nombres de chiffres de maxGenere doit correspondre au nombre du parametres codeNumbers
+2019-09-22 23:46:29 INFO  Main:16 - this is information message
+2019-09-22 23:46:29 INFO  Menu:17 - Chargement du menu principal
+2019-09-22 23:46:31 INFO  Menu:41 - Choix du mode Déffenseur
+2019-09-22 23:46:33 ERROR Player:40 - Le parametres properties 'minGenere' dois etre egale en nombres de chiffres au parametres 'maxGenere'
+2019-09-22 23:46:33 ERROR Player:41 - Le nombres de chiffres du parametres properties 'maxGenere' doit correspondre au nombre du parametres 'codeNumbers'
+2019-09-22 23:47:46 INFO  Main:16 - this is information message
+2019-09-22 23:47:46 ERROR Main:24 - Une erreur inconnue est survenue (class java.lang.NumberFormatException)
+2019-09-22 23:55:59 INFO  Main:16 - this is information message
+2019-09-22 23:55:59 ERROR Main:24 - Une erreur inconnue est survenue (class java.lang.NumberFormatException)
+2019-09-22 23:57:39 INFO  Main:16 - this is information message
+2019-09-22 23:57:39 INFO  Menu:17 - Chargement du menu principal
+2019-09-22 23:57:42 INFO  Menu:41 - Choix du mode Déffenseur
+2019-09-22 23:57:45 ERROR Main:24 - Une erreur inconnue est survenue (class java.lang.NullPointerException)
+2019-09-22 23:58:32 INFO  Main:16 - this is information message
+2019-09-22 23:58:32 INFO  Menu:17 - Chargement du menu principal
+2019-09-22 23:58:35 INFO  Menu:41 - Choix du mode Déffenseur
+2019-09-22 23:59:06 INFO  Main:16 - this is information message
+2019-09-22 23:59:06 ERROR Main:24 - Une erreur inconnue est survenue (class java.lang.NumberFormatException)
+2019-09-23 00:05:03 INFO  Main:16 - this is information message
+2019-09-23 00:05:03 ERROR Parametres:53 - Le paramètres 'minGenere' dans properties n'est pas un nombre. La valeurs par défault de '9999' a étais attribuer a minInt a la place
+2019-09-23 00:05:03 ERROR Parametres:53 - Le paramètres 'minGenere' dans properties n'est pas un nombre. La valeurs par défault de '9999' a étais attribuer a minInt a la place
+2019-09-23 00:05:03 INFO  Menu:17 - Chargement du menu principal
+2019-09-23 00:05:06 INFO  Menu:41 - Choix du mode Déffenseur
+2019-09-23 00:05:08 ERROR Main:24 - Une erreur inconnue est survenue (class java.lang.IllegalArgumentException)
+2019-09-23 00:53:22 INFO  Main:16 - this is information message
+2019-09-23 00:53:22 ERROR Main:24 - Une erreur inconnue est survenue (class java.lang.NumberFormatException)
+2019-09-23 00:53:43 INFO  Main:16 - this is information message
+2019-09-23 00:53:43 ERROR Parametres:53 - Le paramètres 'minGenere' dans properties n'est pas un nombre. La valeurs par défault de '9999' a étais attribuer a minInt a la place
+2019-09-23 00:53:43 ERROR Parametres:59 - Le paramètres 'maxGenere' dans properties n'est pas un nombre. La valeurs par défault de '9999' a étais attribuer a maxInt a la place
+2019-09-23 00:53:43 ERROR Parametres:53 - Le paramètres 'minGenere' dans properties n'est pas un nombre. La valeurs par défault de '9999' a étais attribuer a minInt a la place
+2019-09-23 00:53:43 ERROR Parametres:59 - Le paramètres 'maxGenere' dans properties n'est pas un nombre. La valeurs par défault de '9999' a étais attribuer a maxInt a la place
+2019-09-23 00:53:43 INFO  Menu:17 - Chargement du menu principal
+2019-09-23 00:54:12 INFO  Main:16 - this is information message
+2019-09-23 00:54:12 ERROR Parametres:53 - Le paramètres 'minGenere' dans properties n'est pas un nombre. La valeurs par défault de '9999' a étais attribuer a minInt a la place
+2019-09-23 00:54:12 ERROR Parametres:59 - Le paramètres 'maxGenere' dans properties n'est pas un nombre. La valeurs par défault de '9999' a étais attribuer a maxInt a la place
+2019-09-23 00:54:12 ERROR Parametres:53 - Le paramètres 'minGenere' dans properties n'est pas un nombre. La valeurs par défault de '9999' a étais attribuer a minInt a la place
+2019-09-23 00:54:12 ERROR Parametres:59 - Le paramètres 'maxGenere' dans properties n'est pas un nombre. La valeurs par défault de '9999' a étais attribuer a maxInt a la place
+2019-09-23 00:54:12 INFO  Menu:17 - Chargement du menu principal
+2019-09-23 00:55:06 INFO  Main:16 - this is information message
+2019-09-23 00:55:06 INFO  Menu:17 - Chargement du menu principal
+2019-09-23 00:55:12 INFO  Menu:41 - Choix du mode Déffenseur
+2019-09-23 00:56:08 INFO  Main:16 - this is information message
+2019-09-23 00:56:08 ERROR Main:24 - Une erreur inconnue est survenue (class java.lang.NumberFormatException)
+2019-09-23 00:56:37 INFO  Main:16 - this is information message
+2019-09-23 00:56:37 ERROR Parametres:35 - Le paramètres toursTotale dans properties n'equivaut pas a un nombre. La valeurs par défault de 10 a étais mis a la place
+2019-09-23 00:56:37 ERROR Parametres:35 - Le paramètres toursTotale dans properties n'equivaut pas a un nombre. La valeurs par défault de 10 a étais mis a la place
+2019-09-23 00:56:37 INFO  Menu:17 - Chargement du menu principal
+2019-09-23 00:56:47 INFO  Menu:41 - Choix du mode Déffenseur
+2019-09-23 00:57:48 INFO  Main:16 - this is information message
+2019-09-23 00:57:48 ERROR Parametres:35 - Le paramètres toursTotale dans properties n'equivaut pas a un nombre. La valeurs par défault de 10 a étais mis a la place
+2019-09-23 00:57:48 ERROR Parametres:35 - Le paramètres toursTotale dans properties n'equivaut pas a un nombre. La valeurs par défault de 10 a étais mis a la place
+2019-09-23 00:57:48 INFO  Menu:17 - Chargement du menu principal
+2019-09-23 00:57:57 INFO  Menu:41 - Choix du mode Déffenseur
+2019-09-23 00:58:16 INFO  Main:16 - this is information message
+2019-09-23 00:58:16 ERROR Parametres:35 - Le paramètres toursTotale dans properties n'equivaut pas a un nombre. La valeurs par défault de 10 a étais mis a la place
+2019-09-23 00:58:16 ERROR Parametres:35 - Le paramètres toursTotale dans properties n'equivaut pas a un nombre. La valeurs par défault de 10 a étais mis a la place
+2019-09-23 00:58:16 INFO  Menu:17 - Chargement du menu principal
+2019-09-23 00:58:22 INFO  Menu:41 - Choix du mode Déffenseur
+2019-09-23 00:59:07 INFO  Main:16 - this is information message
+2019-09-23 00:59:07 INFO  Menu:17 - Chargement du menu principal
+2019-09-23 00:59:10 INFO  Menu:41 - Choix du mode Déffenseur
+2019-09-23 00:59:31 INFO  Main:16 - this is information message
+2019-09-23 00:59:31 ERROR Parametres:35 - Le paramètres toursTotale dans properties n'equivaut pas a un nombre. La valeurs par défault de 10 a étais mis a la place
+2019-09-23 00:59:31 ERROR Parametres:35 - Le paramètres toursTotale dans properties n'equivaut pas a un nombre. La valeurs par défault de 10 a étais mis a la place
+2019-09-23 00:59:31 INFO  Menu:17 - Chargement du menu principal
+2019-09-23 01:00:22 INFO  Main:16 - this is information message
+2019-09-23 01:00:22 ERROR Parametres:35 - Le paramètres toursTotale dans properties n'equivaut pas a un nombre. La valeurs par défault de 10 a étais mis a la place
+2019-09-23 01:00:22 ERROR Parametres:35 - Le paramètres toursTotale dans properties n'equivaut pas a un nombre. La valeurs par défault de 10 a étais mis a la place
+2019-09-23 01:00:22 INFO  Menu:17 - Chargement du menu principal
+2019-09-23 01:00:53 INFO  Main:16 - this is information message
+2019-09-23 01:00:53 INFO  Menu:17 - Chargement du menu principal
+2019-09-23 01:00:58 INFO  Menu:41 - Choix du mode Déffenseur
+2019-09-23 01:01:26 INFO  Main:16 - this is information message
+2019-09-23 01:01:26 ERROR Main:24 - Une erreur inconnue est survenue (class java.lang.NumberFormatException)
+2019-09-23 01:04:53 INFO  Main:16 - this is information message
+2019-09-23 01:04:53 ERROR Main:24 - Une erreur inconnue est survenue (class java.util.MissingResourceException)
+2019-09-23 01:05:27 INFO  Main:16 - this is information message
+2019-09-23 01:05:27 ERROR Main:24 - Une erreur inconnue est survenue (class java.util.MissingResourceException)
+2019-09-23 01:06:41 INFO  Main:16 - this is information message
+2019-09-23 01:06:41 INFO  Menu:17 - Chargement du menu principal
+2019-09-23 01:06:52 INFO  Main:16 - this is information message
+2019-09-23 01:06:52 ERROR Parametres:67 - Le paramètres nombreUnit dans properties n'equivaut pas a un nombre. La valeurs de 4 lui a étais affecter par default
+2019-09-23 01:06:52 ERROR Parametres:67 - Le paramètres nombreUnit dans properties n'equivaut pas a un nombre. La valeurs de 4 lui a étais affecter par default
+2019-09-23 01:06:52 INFO  Menu:17 - Chargement du menu principal
+2019-09-23 01:08:08 INFO  Main:16 - this is information message
+2019-09-23 01:08:08 ERROR Parametres:67 - Le paramètres nombreUnit dans properties n'equivaut pas a un nombre. La valeurs de 4 lui a étais affecter par default
+2019-09-23 01:08:08 ERROR Parametres:67 - Le paramètres nombreUnit dans properties n'equivaut pas a un nombre. La valeurs de 4 lui a étais affecter par default
+2019-09-23 01:08:08 INFO  Menu:17 - Chargement du menu principal
+2019-09-23 01:08:23 INFO  Menu:41 - Choix du mode Déffenseur
+2019-09-23 01:08:26 ERROR Player:40 - Le parametres properties 'minGenere' dois etre egale en nombres de chiffres au parametres 'maxGenere'
+2019-09-23 01:08:26 ERROR Player:41 - Le nombres de chiffres du parametres properties 'maxGenere' doit correspondre au nombre du parametres 'codeNumbers'
+2019-09-23 01:09:37 INFO  Main:16 - this is information message
+2019-09-23 01:09:37 ERROR Main:24 - Une erreur inconnue est survenue (class java.lang.NumberFormatException)
+2019-09-23 01:11:12 INFO  Main:16 - this is information message
+2019-09-23 01:11:12 ERROR Parametres:59 - Le paramètres 'maxGenere' dans properties n'est pas un nombre. La valeurs par défault de '9999' a étais attribuer a maxInt a la place
+2019-09-23 01:11:12 ERROR Parametres:67 - Le paramètres nombreUnit dans properties n'equivaut pas a un nombre. La valeurs de 4 lui a étais affecter par default
+2019-09-23 01:11:12 ERROR Parametres:59 - Le paramètres 'maxGenere' dans properties n'est pas un nombre. La valeurs par défault de '9999' a étais attribuer a maxInt a la place
+2019-09-23 01:11:12 ERROR Parametres:67 - Le paramètres nombreUnit dans properties n'equivaut pas a un nombre. La valeurs de 4 lui a étais affecter par default
+2019-09-23 01:11:12 INFO  Menu:17 - Chargement du menu principal
+2019-09-23 01:11:56 INFO  Menu:41 - Choix du mode Déffenseur
+2019-09-23 01:11:58 ERROR Main:24 - Une erreur inconnue est survenue (class java.lang.IllegalArgumentException)
+2019-09-23 01:12:32 INFO  Main:16 - this is information message
+2019-09-23 01:12:32 ERROR Parametres:59 - Le paramètres 'maxGenere' dans properties n'est pas un nombre. La valeurs par défault de '9999' a étais attribuer a maxInt a la place
+2019-09-23 01:12:32 ERROR Parametres:67 - Le paramètres nombreUnit dans properties n'equivaut pas a un nombre. La valeurs de 4 lui a étais affecter par default
+2019-09-23 01:12:32 ERROR Parametres:59 - Le paramètres 'maxGenere' dans properties n'est pas un nombre. La valeurs par défault de '9999' a étais attribuer a maxInt a la place
+2019-09-23 01:12:32 ERROR Parametres:67 - Le paramètres nombreUnit dans properties n'equivaut pas a un nombre. La valeurs de 4 lui a étais affecter par default
+2019-09-23 01:12:32 INFO  Menu:17 - Chargement du menu principal
+2019-09-23 01:12:37 INFO  Menu:41 - Choix du mode Déffenseur
+2019-09-23 01:12:41 ERROR Main:24 - Une erreur inconnue est survenue (class java.lang.IllegalArgumentException)
+2019-09-23 01:13:12 INFO  Main:16 - this is information message
+2019-09-23 01:13:12 ERROR Parametres:59 - Le paramètres 'maxGenere' dans properties n'est pas un nombre. La valeurs par défault de '9999' a étais attribuer a maxInt a la place
+2019-09-23 01:13:12 ERROR Parametres:67 - Le paramètres nombreUnit dans properties n'equivaut pas a un nombre. La valeurs de 4 lui a étais affecter par default
+2019-09-23 01:13:12 ERROR Parametres:59 - Le paramètres 'maxGenere' dans properties n'est pas un nombre. La valeurs par défault de '9999' a étais attribuer a maxInt a la place
+2019-09-23 01:13:12 ERROR Parametres:67 - Le paramètres nombreUnit dans properties n'equivaut pas a un nombre. La valeurs de 4 lui a étais affecter par default
+2019-09-23 01:13:12 INFO  Menu:17 - Chargement du menu principal
+2019-09-23 01:13:21 INFO  Menu:41 - Choix du mode Déffenseur
+2019-09-23 01:13:23 ERROR Main:24 - Une erreur inconnue est survenue (class java.lang.StringIndexOutOfBoundsException)
+2019-09-23 01:15:44 INFO  Main:16 - this is information message
+2019-09-23 01:15:44 ERROR Parametres:59 - Le paramètres 'maxGenere' dans properties n'est pas un nombre. La valeurs par défault de '9999' a étais attribuer a maxInt a la place
+2019-09-23 01:15:44 ERROR Parametres:67 - Le paramètres nombreUnit dans properties n'equivaut pas a un nombre. La valeurs de 4 lui a étais affecter par default
+2019-09-23 01:15:44 ERROR Parametres:59 - Le paramètres 'maxGenere' dans properties n'est pas un nombre. La valeurs par défault de '9999' a étais attribuer a maxInt a la place
+2019-09-23 01:15:44 ERROR Parametres:67 - Le paramètres nombreUnit dans properties n'equivaut pas a un nombre. La valeurs de 4 lui a étais affecter par default
+2019-09-23 01:15:44 INFO  Menu:17 - Chargement du menu principal
+2019-09-23 01:15:49 INFO  Menu:41 - Choix du mode Déffenseur
+2019-09-23 01:15:50 ERROR Player:40 - Le parametres properties 'minGenere' dois etre egale en nombres de chiffres au parametres 'maxGenere'
+2019-09-23 01:15:50 ERROR Player:41 - Le nombres de chiffres du parametres properties 'maxGenere' doit correspondre au nombre du parametres 'codeNumbers'
+2019-09-23 01:18:26 INFO  Main:16 - this is information message
+2019-09-23 01:18:26 ERROR Main:24 - Une erreur inconnue est survenue (class java.lang.NumberFormatException)
+2019-09-23 01:20:24 INFO  Main:16 - this is information message
+2019-09-23 01:20:24 ERROR Parametres:59 - Le paramètres 'maxGenere' dans properties n'est pas un nombre. La valeurs par défault de '9999' a étais attribuer a maxInt a la place
+2019-09-23 01:20:24 ERROR Parametres:67 - Le paramètres nombreUnit dans properties n'equivaut pas a un nombre. La valeurs de 4 lui a étais affecter par default
+2019-09-23 01:20:24 ERROR Parametres:59 - Le paramètres 'maxGenere' dans properties n'est pas un nombre. La valeurs par défault de '9999' a étais attribuer a maxInt a la place
+2019-09-23 01:20:24 ERROR Parametres:67 - Le paramètres nombreUnit dans properties n'equivaut pas a un nombre. La valeurs de 4 lui a étais affecter par default
+2019-09-23 01:20:24 INFO  Menu:17 - Chargement du menu principal
+2019-09-23 01:21:30 INFO  Main:16 - this is information message
+2019-09-23 01:21:30 ERROR Parametres:59 - Le paramètres 'maxGenere' dans properties n'est pas un nombre. La valeurs par défault de '9999' a étais attribuer a maxInt a la place
+2019-09-23 01:21:30 ERROR Parametres:61 - 9999
+2019-09-23 01:21:30 ERROR Parametres:68 - Le paramètres nombreUnit dans properties n'equivaut pas a un nombre. La valeurs de 4 lui a étais affecter par default
+2019-09-23 01:21:30 ERROR Parametres:59 - Le paramètres 'maxGenere' dans properties n'est pas un nombre. La valeurs par défault de '9999' a étais attribuer a maxInt a la place
+2019-09-23 01:21:30 ERROR Parametres:61 - 9999
+2019-09-23 01:21:30 ERROR Parametres:68 - Le paramètres nombreUnit dans properties n'equivaut pas a un nombre. La valeurs de 4 lui a étais affecter par default
+2019-09-23 01:21:30 INFO  Menu:17 - Chargement du menu principal
+2019-09-23 01:21:44 INFO  Menu:41 - Choix du mode Déffenseur
+2019-09-23 01:21:45 ERROR Main:24 - Une erreur inconnue est survenue (class java.lang.IllegalArgumentException)
+2019-09-23 01:24:14 INFO  Main:16 - this is information message
+2019-09-23 01:24:14 ERROR Parametres:68 - Le paramètres nombreUnit dans properties n'equivaut pas a un nombre. La valeurs de 4 lui a étais affecter par default
+2019-09-23 01:24:14 ERROR Parametres:68 - Le paramètres nombreUnit dans properties n'equivaut pas a un nombre. La valeurs de 4 lui a étais affecter par default
+2019-09-23 01:24:14 INFO  Menu:17 - Chargement du menu principal
+2019-09-23 01:24:30 INFO  Menu:41 - Choix du mode Déffenseur
+2019-09-23 01:30:28 INFO  Main:16 - this is information message
+2019-09-23 01:30:28 ERROR Parametres:67 - Le paramètres 'maxGenere' dans properties n'est pas un nombre. La valeurs par défault de '9999' a étais attribuer a maxInt a la place
+2019-09-23 01:30:28 ERROR Parametres:69 - 9999
+2019-09-23 01:30:28 ERROR Parametres:67 - Le paramètres 'maxGenere' dans properties n'est pas un nombre. La valeurs par défault de '9999' a étais attribuer a maxInt a la place
+2019-09-23 01:30:28 ERROR Parametres:69 - 9999
+2019-09-23 01:30:28 INFO  Menu:17 - Chargement du menu principal
+2019-09-23 01:30:39 INFO  Menu:41 - Choix du mode Déffenseur
+2019-09-23 01:30:40 ERROR Player:40 - Le parametres properties 'minGenere' dois etre egale en nombres de chiffres au parametres 'maxGenere'
+2019-09-23 01:30:40 ERROR Player:41 - Le nombres de chiffres du parametres properties 'maxGenere' doit correspondre au nombre du parametres 'codeNumbers'
+2019-09-23 01:33:04 INFO  Main:16 - this is information message
+2019-09-23 01:33:04 ERROR Parametres:67 - Le paramètres 'maxGenere' dans properties n'est pas un nombre. La valeurs par défault de '9999' a étais attribuer a maxInt a la place
+2019-09-23 01:33:04 ERROR Parametres:69 - 0
+2019-09-23 01:33:04 ERROR Parametres:67 - Le paramètres 'maxGenere' dans properties n'est pas un nombre. La valeurs par défault de '9999' a étais attribuer a maxInt a la place
+2019-09-23 01:33:04 ERROR Parametres:69 - 0
+2019-09-23 01:33:04 INFO  Menu:17 - Chargement du menu principal
+2019-09-23 01:33:07 INFO  Menu:41 - Choix du mode Déffenseur
+2019-09-23 01:33:09 ERROR Main:24 - Une erreur inconnue est survenue (class java.lang.StringIndexOutOfBoundsException)
+2019-09-23 01:36:40 INFO  Main:16 - this is information message
+2019-09-23 01:36:40 ERROR Parametres:68 - Le paramètres 'maxGenere' dans properties n'est pas un nombre
+2019-09-23 01:38:41 INFO  Main:16 - this is information message
+2019-09-23 01:38:41 ERROR Parametres:67 - Le paramètres 'maxGenere' dans properties n'est pas un nombre. La valeurs par défault de '9999' a étais attribuer a maxInt a la place
+2019-09-23 01:38:41 ERROR Parametres:69 - 0
+2019-09-23 01:38:41 ERROR Parametres:67 - Le paramètres 'maxGenere' dans properties n'est pas un nombre. La valeurs par défault de '9999' a étais attribuer a maxInt a la place
+2019-09-23 01:38:41 ERROR Parametres:69 - 0
+2019-09-23 01:38:41 INFO  Menu:17 - Chargement du menu principal
+2019-09-23 01:40:12 INFO  Menu:41 - Choix du mode Déffenseur
+2019-09-23 01:40:14 ERROR Main:24 - Une erreur inconnue est survenue (class java.lang.IllegalArgumentException)
+2019-09-23 01:43:11 INFO  Main:16 - this is information message
+2019-09-23 01:43:11 ERROR Parametres:69 - Le paramètres 'maxGenere' dans properties n'est pas un nombre. La valeurs par défault de '9999' a étais attribuer a maxInt a la place
+2019-09-23 01:43:11 ERROR Parametres:70 - 9999
+2019-09-23 01:43:11 ERROR Parametres:69 - Le paramètres 'maxGenere' dans properties n'est pas un nombre. La valeurs par défault de '9999' a étais attribuer a maxInt a la place
+2019-09-23 01:43:11 ERROR Parametres:70 - 9999
+2019-09-23 01:43:11 INFO  Menu:17 - Chargement du menu principal
+2019-09-23 01:43:18 INFO  Menu:41 - Choix du mode Déffenseur
+2019-09-23 01:43:21 ERROR Main:24 - Une erreur inconnue est survenue (class java.lang.IllegalArgumentException)
+2019-09-23 01:47:19 INFO  Main:16 - this is information message
+2019-09-23 01:47:19 ERROR Parametres:68 - Le paramètres 'maxGenere' dans properties n'est pas un nombre. La valeurs par défault de '9999' a étais attribuer a maxInt a la place
+2019-09-23 01:47:19 ERROR Parametres:69 - 9999
+2019-09-23 01:47:19 ERROR Parametres:68 - Le paramètres 'maxGenere' dans properties n'est pas un nombre. La valeurs par défault de '9999' a étais attribuer a maxInt a la place
+2019-09-23 01:47:19 ERROR Parametres:69 - 9999
+2019-09-23 01:47:19 INFO  Menu:17 - Chargement du menu principal
+2019-09-23 01:47:22 INFO  Menu:41 - Choix du mode Déffenseur
+2019-09-23 01:47:23 ERROR Main:24 - Une erreur inconnue est survenue (class java.lang.IllegalArgumentException)
+2019-09-23 01:48:08 INFO  Main:16 - this is information message
+2019-09-23 01:48:08 ERROR Parametres:68 - Le paramètres 'maxGenere' dans properties n'est pas un nombre. La valeurs par défault de '9999' a étais attribuer a maxInt a la place
+2019-09-23 01:48:08 ERROR Parametres:68 - Le paramètres 'maxGenere' dans properties n'est pas un nombre. La valeurs par défault de '9999' a étais attribuer a maxInt a la place
+2019-09-23 01:48:08 INFO  Menu:17 - Chargement du menu principal
+2019-09-23 01:48:11 INFO  Menu:41 - Choix du mode Déffenseur
+2019-09-23 01:48:13 ERROR Main:24 - Une erreur inconnue est survenue (class java.lang.IllegalArgumentException)
+2019-09-23 01:49:49 INFO  Main:16 - this is information message
+2019-09-23 01:49:49 ERROR Parametres:43 - Le paramètres toursTotale dans properties n'equivaut pas a un nombre. La valeurs par défault de 10 a étais mis a la place
+2019-09-23 01:49:49 ERROR Parametres:43 - Le paramètres toursTotale dans properties n'equivaut pas a un nombre. La valeurs par défault de 10 a étais mis a la place
+2019-09-23 01:49:49 INFO  Menu:17 - Chargement du menu principal
+2019-09-23 01:49:53 INFO  Menu:41 - Choix du mode Déffenseur
+2019-09-23 01:55:07 INFO  Main:16 - this is information message
+2019-09-23 01:55:07 INFO  Menu:17 - Chargement du menu principal
+2019-09-23 01:55:23 INFO  Menu:41 - Choix du mode Déffenseur
+2019-09-23 02:00:02 INFO  Main:16 - this is information message
+2019-09-23 02:00:02 INFO  Menu:17 - Chargement du menu principal
+2019-09-23 02:00:06 INFO  Menu:41 - Choix du mode Déffenseur
+2019-09-23 02:00:31 ERROR Main:24 - Une erreur inconnue est survenue (class java.lang.IllegalArgumentException)
+2019-09-23 02:02:04 INFO  Main:16 - this is information message
+2019-09-23 02:02:04 INFO  Menu:17 - Chargement du menu principal
+2019-09-23 02:02:08 INFO  Menu:41 - Choix du mode Déffenseur
+2019-09-23 02:02:10 ERROR Main:24 - Une erreur inconnue est survenue (class java.lang.StringIndexOutOfBoundsException)
+2019-09-23 02:04:00 INFO  Main:16 - this is information message
+2019-09-23 02:04:00 INFO  Menu:17 - Chargement du menu principal
+2019-09-23 02:04:04 INFO  Menu:41 - Choix du mode Déffenseur
+2019-09-23 02:04:13 ERROR Main:24 - Une erreur inconnue est survenue (class java.lang.IllegalArgumentException)

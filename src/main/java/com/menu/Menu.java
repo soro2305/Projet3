@@ -1,57 +1,65 @@
 package com.menu;
 
+import org.apache.log4j.Logger;
+
 import java.util.Scanner;
 
 public class Menu {
+    private static Logger logger = Logger.getLogger(Menu.class);
 
 
     public void startMenuUser() {
         //Initialisation des instances
-        Parametres parametres = new Parametres();
+        boolean isValid = false;
         Mode choixObj = new Mode();
         Scanner input = new Scanner(System.in);
         char option = '\0';
-
+         logger.info("Chargement du menu principal");
         //===== Menu d accueil ======
-        System.out.println("\n");
-        System.out.println("Menu principal");
-        System.out.println("Entre une lettre correspondant à l'option désirée");
-        System.out.println("A-Challenger");
-        System.out.println("B-Déffenseur");
-        System.out.println("C-Duel");
-        System.out.println("D-Paramètres");
-        System.out.println("E-Quitter");
+        while (isValid == false) {
+            System.out.println("\n");
+            System.out.println("Menu principal");
+            System.out.println("Entre une lettre correspondant à l'option désirée");
+            System.out.println("A-Challenger");
+            System.out.println("B-Déffenseur");
+            System.out.println("C-Duel");
+            System.out.println("D-Quitter");
 
-        option = input.next().charAt(0); // ===== Initialisation de la var char options afin de récupérer le 1er caractère saisie =======
-        System.out.println("\n");
-        // Utilisation de switch contient les choix du menu
-        switch (option) {
-            case 'A'://===== Choix A envoie méthode challenger ======
-                System.out.println("============================= Bienvenue dans le mode Challenger ========================== \n");
-                choixObj.challenger();
-                break;
-            case 'B'://====== Choix B envoie méthode defensseur =======
-                System.out.println("============================ Bienvenue dans le mode Déffenseur =========================== \n");
-                choixObj.déffenseur();
-                break;
-            case 'C'://====== Choix C envoie méthode duel =======
-                System.out.println("=========================== Bienvenue dans le mode Duel ================================== \n");
-                System.out.println("Le premier à trouver la combinaison adverse gagne la partie !!! \n");//Pas de manches dans ce mode
-                choixObj.duel();
-                break;
-            case 'D'://====== Choix D envoie méthode settings =======
-                System.out.println("=========================== Bienvenue dans les Paramétres ================================== \n");
-                parametres.settings();
-                break;
-            case 'E'://====== Choix E termine le programme =======
-                System.out.println("Vous avez choisi de Quitter");
-                break;
+            logger.debug("Récupération de l'entrée clavier ");
+            option = input.next().charAt(0); // ===== Initialisation de la var char options afin de récupérer le 1er caractère saisie =======
+            System.out.println("\n");
+            // Utilisation de switch contient les choix du menu
+            logger.debug("Paramètres options : " + option);
+            switch (option) {
+                case 'A'://===== Choix A envoie méthode challenger ======
+                    logger.info("Choix du mode Challenger");
+                    System.out.println("============================= Bienvenue dans le mode Challenger ========================== \n");
+                    choixObj.challenger();
+                    isValid = true;
+                    break;
+                case 'B'://====== Choix B envoie méthode defensseur =======
+                    logger.info("Choix du mode Déffenseur");
+                    System.out.println("============================ Bienvenue dans le mode Déffenseur =========================== \n");
+                    choixObj.deffenseur();
+                    isValid = true;
+                    break;
+                case 'C'://====== Choix C envoie méthode duel =======
+                    System.out.println("=========================== Bienvenue dans le mode Duel ================================== \n");
+                    System.out.println("Le premier à trouver la combinaison adverse gagne la partie !!! \n");//Pas de manches dans ce mode
+                    choixObj.duel();
+                    isValid = true;
+                    break;
+                case 'D'://====== Choix E termine le programme =======
+                    System.out.println("Vous avez choisi de Quitter");
+                    isValid = true;
+                    break;
+                //Message en cas d'entrée invalide
+                default:
+                    System.out.println("Entrer invalide ! Essayer encore");
+                     isValid = false;
+            }
 
-            default:
-                System.out.println("Entrer invalide ! Essayer encore");
         }
-
-
     }
 
     //Menu affiché en fin de partie

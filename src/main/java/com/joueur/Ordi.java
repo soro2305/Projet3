@@ -1,13 +1,21 @@
 package com.joueur;
 
-public class Ordi extends Player { //Méthode qui génère un code aléatoire String
+import com.menu.Parametres;
+import org.apache.log4j.Logger;
+
+public class Ordi extends Player {
+    private static Logger logger = Logger.getLogger(Ordi.class);
+
+    //Création d'objets settings pr importé les paramètres utiles
+    Parametres settingsObj = new Parametres();
+    //Méthode qui génère un code aléatoire String
     public String generCodeString(int min, int max) {
         int stockReponse = genere.nextInt((max - min) + 1) + min; //Classe Random utiliser pour définir les bornes max min de la combinaison
         String newCode = Integer.toString(stockReponse); //Conversion de la combi en string
         return newCode; //Retour combinaison String
     }
 
-    //Génère news unit int
+    // Génère nouvelles unités int
     public int generCodeInt(int min, int max) {
         int newsUnit = genere.nextInt((max - min) + 1) + min; //Classe Random utiliser pour définir les bornes max min de la combinaison
         return newsUnit; //Retour combinaison
@@ -16,63 +24,60 @@ public class Ordi extends Player { //Méthode qui génère un code aléatoire St
     //Méthode qui permet à l'utilisateur d'entré une combinaison
     public String defineCodeUser() {
         System.out.println("Veuillez définir votre combinaison");
-        return saisieUser.nextLine();// Retourne saisie du Scanner
+        String result = saisieUser.nextLine();
+        if (result.length()==0){
+            logger.warn("Attention code utilisateur recuperer est une chaine vide");
+        }else if (result.length()>100){
+            logger.warn("Attention code utilisateur au dessus de 100 chiffres ");
+        }
+
+        return result;// Retourne saisie du Scanner
     }
 
     public String[] newCodeOrdi(String codeUser, String codeOrdi1, String min1, String max1) {
-        //   System.out.println("\n( Arriver Methode ) \n code max : "+max1+ " \n code min : "+min1+ "\n code ordi precedant : "+codeOrdi1);
-        //Initialisation Objets variables
-        Player playerObj = new Player();
+        //Initialisation variables
         int unitPlusHaut;
         int unitPlusBas;
-        int nombreUnit = 4;
+        int nombreUnit = settingsObj.getNombreUnit();//Définit la taille des combinaisons selon les paramètres
         //Array pr stocker current en int et combi final en String
-        int[] previousMin = new int[4];//Stocke ancien code Min
-        int[] previousMax = new int[4];//Stocke ancien code Max
+        int[] previousMin = new int[nombreUnit];//Stocke ancien code Min int
+        int[] previousMax = new int[nombreUnit];//Stocke ancien code Max int
         int[] stockCode = new int[nombreUnit];//Stocke news code int
-        //Array pr stocker les réponses ( range min max + news combi )
-        String newCode[] = new String[stockCode.length];//Stocke news code int
-        String newMax[] = new String[stockCode.length];
-        String newMin[] = new String[stockCode.length];
-        //Array pr retourné les réponses ( range min max + news combi )
-        String[] retour = new String[3];
-
+        //Array pr stocker les réponses ( range min max + news combi ) en String
+        String newCode[] = new String[nombreUnit];//Stocke news code int
+        String newMax[] = new String[nombreUnit];//Stocke new code Max en String
+        String newMin[] = new String[nombreUnit];//Stocke new code Min en String
         //Reponse final format String
         String newCodeString = "";
         String newCodeMax = "";
         String newCodeMin = "";
-        //Deux boucles pour séparés caractères des code Ordi et User
+        //Array pr retourné les réponses : range ,min, max + news combi
+        String[] retour = new String[3];
+        //Boucles pour séparés caractères des codes Ordi,User,Min,Max
         for (int i = 0; i < codeOrdi1.length(); i++) {
             for (int i2 = 0; i < codeUser.length(); i++) {
                 for (int i3 = 0; i < min1.length(); i++) {
                     for (int i4 = 0; i < max1.length(); i++) {
-//                        //Stockage de ses caractères dans des var int
+//                       //Conversion et stockage de ses caractères dans des var int
                         int unitCodeMin = Character.getNumericValue(min1.charAt(i));
                         int unitCodeMax = Character.getNumericValue(max1.charAt(i));
                         int unitCodeUser = Character.getNumericValue(codeUser.charAt(i));
                         int unitCodeOrdi = Character.getNumericValue(codeOrdi1.charAt(i));
                         //Conditions pour comparer si les futur unités combi Ordi doivent êtres "-+="
                         if (unitCodeUser < unitCodeOrdi) {
-                            //Méthode random génére news units.Borne max ordi -1 pr évité les doublons
-                            unitPlusBas = playerObj.generCodeInt((unitCodeMin + 1), (unitCodeOrdi - 1));
-                            //  System.out.println("Bornes generateurs "+unitCodeMin + ", "+ unitCodeOrdi+ " ==== "+ unitPlusBas);
-                            stockCode[i] = unitPlusBas;//Stocke news code
-                            previousMax[i] = unitCodeOrdi;
-                            previousMin[i] = unitCodeMin;
-                            //  System.out.println(previousMin[i]);
-
+                            //Méthode random génére news units.
+                            unitPlusBas = generCodeInt((unitCodeMin + 1), (unitCodeOrdi - 1));//Borne min dernière min+1, borne max ordi-1 pr évité les doublons
+                            stockCode[i] = unitPlusBas;//Stocke unit new code
+                            previousMax[i] = unitCodeOrdi;//Stocke news unit Max
+                            previousMin[i] = unitCodeMin;//Stocke news unit Min
                         }
                         //Boucle génére nouvelle unité tant que plus basse que précédente
                         if (unitCodeUser > unitCodeOrdi) {
-                            //Méthode random génére news units.Borne min ordi +1 pr évité les doublons
-                            unitPlusHaut = playerObj.generCodeInt((unitCodeOrdi + 1), (unitCodeMax - 1));
-                            //   System.out.println("Bornes generateurs "+unitCodeOrdi + ", "+ unitCodeMax+" ==== " +unitPlusHaut);
-
-                            stockCode[i] = unitPlusHaut;
-                            previousMin[i] = unitCodeOrdi;
-
-                            previousMax[i] = unitCodeMax;            //        System.out.println(previousMin[i]);
-
+                            //Méthode random génére news units.
+                            unitPlusHaut = generCodeInt((unitCodeOrdi + 1), (unitCodeMax - 1));//Borne min ordi+1, borne max dernière max-1 pr évité les doublons
+                            stockCode[i] = unitPlusHaut;//Stocke unit new code
+                            previousMin[i] = unitCodeOrdi;//Stocke news unit Min
+                            previousMax[i] = unitCodeMax;//Stocke news unit Max
                         }
                         //Génére unité égales
                         if (unitCodeUser == unitCodeOrdi) {
@@ -86,79 +91,23 @@ public class Ordi extends Player { //Méthode qui génère un code aléatoire St
             }
         }
 
-        //   Transforme int array en string array
+        //   Transforme int arrays en string arrays
         for (int j = 0; j < stockCode.length; j++) {
             newCode[j] = String.valueOf(stockCode[j]);
             newMax[j] = String.valueOf(previousMax[j]);
             newMin[j] = String.valueOf(previousMin[j]);
 
         }
-        //Transforme array String en String
-        newCodeString = Player.ArrayToString(newCode);
-        newCodeMax = Player.ArrayToString(newMax);
-        newCodeMin = Player.ArrayToString(newMin);
+        //Transforme arrays String en String simple
+        newCodeString = ArrayToString(newCode);
+        newCodeMax = ArrayToString(newMax);
+        newCodeMin = ArrayToString(newMin);
+        //Attributions contenu retour ->new combi + range max + range min
         retour[0] = newCodeString;
         retour[1] = newCodeMax;
         retour[2] = newCodeMin;
-        //  System.out.println("\n  ( Fin Methode ) \n code max : "+newCodeMax+ " \n code min : "+newCodeMin+"\n new code ordi : "+newCodeString);
-        //retour nouvelle combinaison en String
+        //retour réponses en String array
         return retour;
-    }
-
-    public String new1(String codeTempo, String codeOrdi1, String codeUser) {
-        //Initialisation Objets variables
-        Player playerObj = new Player();
-        int unitPlusHaut = 0;
-        int unitPlusBas = 0;
-        int nombreUnit = 4;
-        //Array pr stocker current en int et combi final en String
-        int[] previousCode = new int[nombreUnit];//Stocke ancien code int
-        int[] stockCode = new int[nombreUnit];//Stocke news code int
-        String newCode[] = new String[stockCode.length];//Stocke news code int
-        //Reponse final format String
-        String newCodeString = "";
-        //Deux boucles pour séparés caractères des code Ordi et User
-        for (int i = 0; i < codeTempo.length(); i++) {
-            for (int i2 = 0; i < codeOrdi1.length(); i++) {
-                for (int i3 = 0; i < codeUser.length(); i++) {
-
-                    //Stockage de ses caractères dans des var int
-                    int unitCodeOrdi = Character.getNumericValue(codeOrdi1.charAt(i));
-                    int unitCodeTempo = Character.getNumericValue(codeTempo.charAt(i));
-                    int unitCodeUser = Character.getNumericValue(codeTempo.charAt(i));
-
-                    //Conditions pour comparer si les futur unités combi Ordi doivent êtres "-+="
-                    if (unitCodeUser < unitCodeOrdi) {
-                        //Méthode random génére news units.Borne max ordi -1 pr évité les doublons
-                        unitPlusBas = playerObj.generCodeInt(0, (unitCodeOrdi - 1));
-                        if (unitPlusBas < unitCodeTempo) unitPlusBas = playerObj.generCodeInt(0, (unitPlusBas - 1));
-
-                        stockCode[i] = unitPlusBas;//Stocke news code
-                    }
-                    if (unitCodeUser > unitCodeOrdi) {
-                        //Méthode random génére news units.Borne min ordi +1 pr évité les doublons
-                        unitPlusHaut = playerObj.generCodeInt((unitCodeOrdi + 1), 9);
-                        if (unitPlusHaut > unitCodeTempo)
-                            unitPlusHaut = playerObj.generCodeInt((unitPlusHaut + 1), unitCodeUser);
-
-
-                        stockCode[i] = unitPlusHaut;
-                    }
-                    //Génére unité égales
-                    if (unitCodeTempo == unitCodeOrdi) {
-                        stockCode[i] = playerObj.generCodeInt(unitCodeTempo, unitCodeTempo);
-                    }
-                }
-            }
-        }
-        //   Transforme int array en string array
-        for (int j = 0; j < stockCode.length; j++) {
-            newCode[j] = String.valueOf(stockCode[j]);
-        }
-        //Transforme array String en String
-        newCodeString = Player.ArrayToString(newCode);
-        //retour nouvelle combinaison en String
-        return newCodeString;
     }
 
     //Méthode qui converti un Array de String en String

@@ -1,24 +1,29 @@
 package com.joueur;
 
 import com.menu.Parametres;
+import org.apache.log4j.Logger;
 
 import java.util.Random;
 import java.util.Scanner;
 
 public class Player {
     //Initialisation des instances
+    private static Logger logger = Logger.getLogger(Player.class);
+
     Random genere = new Random();
     Scanner saisieUser = new Scanner(System.in);
 
     public void compare(String sP, String sE) {
 
-
+        try {
         //Deux boucles pour convertir chaque caractère des args en int.
         for (int i = 0; i < sE.length(); i++) {
             for (int i2 = 0; i < sP.length(); i++) {
+
                 int b = Character.getNumericValue(sP.charAt(i));
                 int a = Character.getNumericValue(sE.charAt(i));
-                //Conditions pour comparer et définir l'indication à retourner
+
+                    //Conditions pour comparer et définir l'indication à retourner
                 if (a < b) {
                     System.out.print("-");
                 }
@@ -29,6 +34,13 @@ public class Player {
                     System.out.print("=");
                 }
             }
+        }
+        } catch (StringIndexOutOfBoundsException e){
+            System.out.println();
+            logger.error("Le parametres properties 'minGenere' dois etre egale en nombres de chiffres au parametres 'maxGenere'");
+            logger.error("Le nombres de chiffres du parametres properties 'maxGenere' doit correspondre au nombre du parametres 'codeNumbers'");
+            System.exit(-1);
+
         }
     }
 

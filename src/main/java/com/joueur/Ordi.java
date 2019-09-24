@@ -3,15 +3,18 @@ package com.joueur;
 import com.menu.Parametres;
 import org.apache.log4j.Logger;
 
+//Classe User regroupe les fonctionnalités propres à l'Ordi, générateur de combinaison, conversion, comparaison
 public class Ordi extends Player {
+    //Initialisation du logger pour player
     private static Logger logger = Logger.getLogger(Ordi.class);
-
     //Création d'objets settings pr importé les paramètres utiles
     Parametres settingsObj = new Parametres();
 
     //Méthode qui génère un code aléatoire String
-    public String generCodeString(int min, int max) {
-        int stockReponse = genere.nextInt((max - min) + 1) + min; //Classe Random utiliser pour définir les bornes max min de la combinaison
+    public String generCodeString(String min, String max) {
+        int minI = Integer.parseInt(min);
+        int maxI = Integer.parseInt(max);
+        int stockReponse = genere.nextInt((maxI - minI) + 1) + minI; //Classe Random utiliser pour définir les bornes max min de la combinaison
         String newCode = Integer.toString(stockReponse); //Conversion de la combi en string
         return newCode; //Retour combinaison String
     }
@@ -20,19 +23,6 @@ public class Ordi extends Player {
     public int generCodeInt(int min, int max) {
         int newsUnit = genere.nextInt((max - min) + 1) + min; //Classe Random utiliser pour définir les bornes max min de la combinaison
         return newsUnit; //Retour combinaison
-    }
-
-    //Méthode qui permet à l'utilisateur d'entré une combinaison
-    public String defineCodeUser() {
-        System.out.println("Veuillez définir votre combinaison");
-        String result = saisieUser.nextLine();
-        if (result.length() == 0) {
-            logger.warn("Attention code utilisateur recuperer est une chaine vide");
-        } else if (result.length() > 100) {
-            logger.warn("Attention code utilisateur au dessus de 100 chiffres ");
-        }
-
-        return result;// Retourne saisie du Scanner
     }
 
     public String[] newCodeOrdi(String codeUser, String codeOrdi1, String min1, String max1) {

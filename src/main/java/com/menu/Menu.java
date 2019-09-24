@@ -5,8 +5,8 @@ import org.apache.log4j.Logger;
 import java.util.Scanner;
 
 public class Menu {
+    //Initialisation du logger pour menu
     private static Logger logger = Logger.getLogger(Menu.class);
-
 
     public void startMenuUser() {
         logger.info("Arriver dans le menu startMenu");

@@ -5,22 +5,22 @@ import org.apache.log4j.Logger;
 
 import java.util.Random;
 import java.util.Scanner;
-
+//Classe parent d'ordi et user elle contient toutes les méthodes de ces dernieres
 public class Player {
     //Initialisation des instances
     private static Logger logger = Logger.getLogger(Player.class);
     Random genere = new Random();
     Scanner saisieUser = new Scanner(System.in);
 
-    public void compare(String sP, String sE) {
+    public void compare(String codeUser, String codeOrdi) {
 
         try {//Handle L'exception OutOfBounds si mauvais paramétrage du fichier properties
             //Deux boucles pour convertir chaque caractère des args en int.
-            for (int i = 0; i < sE.length(); i++) {
-                for (int i2 = 0; i < sP.length(); i++) {
+            for (int i = 0; i < codeOrdi.length(); i++) {
+                for (int i2 = 0; i < codeUser.length(); i++) {
 
-                    int b = Character.getNumericValue(sP.charAt(i));
-                    int a = Character.getNumericValue(sE.charAt(i));
+                    int b = Character.getNumericValue(codeUser.charAt(i));
+                    int a = Character.getNumericValue(codeOrdi.charAt(i));
 
                     //Conditions pour comparer et définir l'indication à retourner
                     if (a < b) {
@@ -45,8 +45,10 @@ public class Player {
 
 
     //Méthode qui génère un code aléatoire String
-    public String generCodeString(int min, int max) {
-        int stockReponse = genere.nextInt((max - min) + 1) + min; //Classe Random utiliser pour définir les bornes max min de la combinaison
+    public String generCodeString(String min, String max) {
+        int minI = Integer.parseInt(min);
+        int maxI = Integer.parseInt(max);
+        int stockReponse = genere.nextInt((maxI - minI) + 1) + minI; //Classe Random utiliser pour définir les bornes max min de la combinaison
         String newCode = Integer.toString(stockReponse); //Conversion de la combi en string
         return newCode; //Retour combinaison String
     }
@@ -58,16 +60,16 @@ public class Player {
     }
 
     //Méthode qui permet à l'utilisateur d'entrée sa combinaison
-    public String defineCodeUser() {
+    public String defineCodeUser(boolean defineOrAttempt) {
         System.out.println("Veuillez définir une combinaison que l'Ordi doit deviner !!!");
         return saisieUser.nextLine();// Retourne saisie du Scanner
     }
 
-    //Méthode qui permet à l'utilisateur d'entrée une tentative de devinette
-    public String attemptUser() {
-        System.out.println("Deviner la combinaison secrète de l'Ordi. C'est à vous !!! ");
-        return saisieUser.nextLine();// Retourne saisie du Scanner
-    }
+//    //Méthode qui permet à l'utilisateur d'entrée une tentative de devinette
+//    public String attemptUser() {
+//        System.out.println("Deviner la combinaison secrète de l'Ordi. C'est à vous !!! ");
+//        return saisieUser.nextLine();// Retourne saisie du Scanner
+//    }
 
     //Méthode qui permet à l'ordi de générer une combi à partir des indications de sa précédente combi
     public String[] newCodeOrdi(String codeOrdi1, String codeUser, String min1, String max1) {

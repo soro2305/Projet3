@@ -65,12 +65,6 @@ public class Player {
         return saisieUser.nextLine();// Retourne saisie du Scanner
     }
 
-//    //Méthode qui permet à l'utilisateur d'entrée une tentative de devinette
-//    public String attemptUser() {
-//        System.out.println("Deviner la combinaison secrète de l'Ordi. C'est à vous !!! ");
-//        return saisieUser.nextLine();// Retourne saisie du Scanner
-//    }
-
     //Méthode qui permet à l'ordi de générer une combi à partir des indications de sa précédente combi
     public String[] newCodeOrdi(String codeOrdi1, String codeUser, String min1, String max1) {
         //Initialisation Objets variables

@@ -1,0 +1,34 @@
+2019-09-26 20:15:03 INFO  Main:14 - this is information message
+2019-09-26 20:15:03 INFO  Menu:12 - Arriver dans le menu startMenu
+2019-09-26 20:15:03 ERROR Parametres:35 - Le fichier properties est introuvable 
+2019-09-26 20:18:42 INFO  Main:14 - this is information message
+2019-09-26 20:18:42 INFO  Menu:12 - Arriver dans le menu startMenu
+2019-09-26 20:18:42 INFO  Menu:27 - Chargement du menu principal
+2019-09-26 20:23:59 INFO  Main:14 - this is information message
+2019-09-26 20:23:59 INFO  Menu:12 - Arriver dans le menu startMenu
+2019-09-26 20:23:59 INFO  Menu:27 - Chargement du menu principal
+2019-09-26 20:28:35 INFO  Menu:55 - Choix quitter l'application
+2019-09-26 20:31:44 INFO  Main:14 - this is information message
+2019-09-26 20:31:44 INFO  Menu:12 - Arriver dans le menu startMenu
+2019-09-26 20:31:44 INFO  Menu:27 - Chargement du menu principal
+2019-09-27 03:38:55 INFO  Main:14 - this is information message
+2019-09-27 03:38:55 INFO  Menu:12 - Arriver dans le menu startMenu
+2019-09-27 03:38:55 INFO  Menu:27 - Chargement du menu principal
+2019-09-27 03:39:01 INFO  Menu:42 - Choix du mode Déffenseur
+2019-09-27 03:39:01 INFO  Mode:101 - Arriver dans le mode Déffenseur
+2019-09-27 03:39:04 INFO  Menu:70 - Arriver dans le menu endMenu
+2019-09-27 03:39:07 INFO  Mode:101 - Arriver dans le mode Déffenseur
+2019-09-27 03:39:11 INFO  Menu:70 - Arriver dans le menu endMenu
+2019-09-27 03:39:15 INFO  Mode:101 - Arriver dans le mode Déffenseur
+2019-09-27 03:39:18 INFO  Menu:70 - Arriver dans le menu endMenu
+2019-09-27 03:39:23 INFO  Mode:101 - Arriver dans le mode Déffenseur
+2019-09-27 03:39:25 INFO  Menu:70 - Arriver dans le menu endMenu
+2019-09-27 03:39:32 INFO  Mode:101 - Arriver dans le mode Déffenseur
+2019-09-27 03:39:35 INFO  Menu:70 - Arriver dans le menu endMenu
+2019-09-27 03:39:40 INFO  Mode:101 - Arriver dans le mode Déffenseur
+2019-09-27 03:39:42 INFO  Menu:70 - Arriver dans le menu endMenu
+2019-09-27 03:39:49 INFO  Mode:101 - Arriver dans le mode Déffenseur
+2019-09-27 03:39:52 ERROR Main:22 - Une erreur inconnue est survenue (class java.lang.StringIndexOutOfBoundsException)
+2019-09-27 03:40:10 INFO  Main:14 - this is information message
+2019-09-27 03:40:10 INFO  Menu:12 - Arriver dans le menu startMenu
+2019-09-27 03:40:10 INFO  Menu:27 - Chargement du menu principal

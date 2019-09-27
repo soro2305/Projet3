@@ -18,6 +18,9 @@ public class Mode {
     private String maxString;
     private String minString;
 
+
+
+    private boolean isParamValid;
     private int tours;
 
     public Mode() {
@@ -28,14 +31,17 @@ public class Mode {
         this.codeUser = "";
         this.codeOrdi = "1";
         this.rejouer = false;
+        this.isParamValid = settingsObj.init();
         this.nombreUnit = settingsObj.getNombreUnit();
         this.maxString = settingsObj.getMax();
         this.minString = settingsObj.getMin();
         this.tours = settingsObj.getToursTotale();
+
     }
 
-
-
+    public boolean isParamValid() {
+        return isParamValid;
+    }
     public int getNombreUnit() {
         return nombreUnit;
     }
@@ -97,8 +103,8 @@ public class Mode {
     }
 
     //Méthode du mode Deffenseur
-    public void deffenseur() {
-        logger.info("Arriver dans le mode Déffenseur");
+    public void defenseur() {
+        logger.info("Arriver dans le mode Défenseur");
         String getmax = getMaxString();
         String getMin = getMinString();
         String borneMax= getmax;
@@ -111,7 +117,7 @@ public class Mode {
         System.out.println("                        Bonnes chances !!!");
         System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
         //Définition combinaison utilisateur
-        codeUser = userObj.defineCodeUser(false);
+        codeUser = userObj.defineCodeUser(true);
         //Définition 1 er combinaison Ordi
         codeOrdi = ordiObj.generCodeString(borneMin, borneMax);
         //Boucle paramètre le nombres de tentatives via la var int tours
@@ -144,14 +150,12 @@ public class Mode {
 
             }
         }
-        //Réinitialise ses valeurs en cas de nouvelle partie
-//        maxString = settingsObj.getMax();
-//        minString = settingsObj.getMin();
-//        maxInt = Integer.parseInt(maxString);
-//        minInt = Integer.parseInt(minString);
-        //Envoie au menu final
         rejouer = menuObj.endMenuUser();
-        if (rejouer == true) deffenseur(); //Condition pour relancer mÃªme mode
+        if (rejouer == true)
+            this.maxString =getMaxString();
+            this.minString = getMinString();
+            this.nombreUnit = getNombreUnit();
+            defenseur(); //Condition pour relancer même mode
 
     }
 
@@ -169,10 +173,8 @@ public class Mode {
         //Définition combinaison Ordi
         codeOrdi =  ordiObj.generCodeString(getMinString(), getMaxString());
         //Définition tentative Ordi
-        logger.debug("min : "+getMinString()+" max : "+getMaxString());
 
         tentativeOrdi =  ordiObj.generCodeString(getMinString(), getMaxString());
-        logger.debug("code ordi : "+codeOrdi+"code user : "+codeUser);
 
         //Infos qui indique  les valeurs en fonction des paramètres
         System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");

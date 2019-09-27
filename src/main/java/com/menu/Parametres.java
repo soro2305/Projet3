@@ -1,18 +1,20 @@
 package com.menu;
 
-import com.Main;
 import org.apache.log4j.Logger;
 
-import java.util.MissingResourceException;
-import java.util.ResourceBundle;
-import java.util.Scanner;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
 
 // Classe qui gère les paramètres
 public class Parametres {
     //Initialisation du logger paramètres
     private static Logger logger = Logger.getLogger(Parametres.class);
     // Déclarations des instances qui vont contenir les valeurs du fichier properties
-    private ResourceBundle properties;
+    private Properties properties ;
+ //   private ResourceBundle properties;
     private int toursTotale;
     private String min;
     private String max;
@@ -20,43 +22,59 @@ public class Parametres {
     private boolean devMode;
 
 
-    //Constructeurs paramètres
-    //Contient les try catch pour gérer les exceptions, relatives à la validité des valeurs, du fichier properties
+    //Constructeur paramètre initialise des valeurs par défaut en cas d'erreur
     public Parametres() {
+        this.properties = null;
+        this.toursTotale = 4;
+        this.min = "0000";
+        this.max = "9999";
+        this.nombreUnit = 4;
+        this.devMode = false;
+    }
+    //Contient les try catch pour gérer les exceptions, relatives à la validité des valeurs, du fichier properties
+
+    public boolean init() {
+
+        InputStream input;
         try {
-            this.properties = ResourceBundle.getBundle("params");
-        } catch (MissingResourceException e) {
+            this.properties = new Properties();
+            input = new FileInputStream("params.properties");
+            properties.load(input);
+        } catch (IOException e) {
             logger.error("Le fichier properties est introuvable ");
-            e.printStackTrace();
-            System.exit(-1);
-        }
-        try {
-            this.toursTotale = Integer.parseInt(properties.getString("toursTotale"));
-        } catch (NumberFormatException e) {
-            logger.error("Le paramètres toursTotale dans properties n'equivaut pas a un nombre. La valeurs par défault de 10 a étais mis a la place");
-            this.toursTotale = 10;
-        }
-        try {
-            this.min = properties.getString("minGenere");
-        } catch (NumberFormatException e) {
-            logger.error("Le paramètres 'minGenere' dans properties n'est pas un nombre. La valeurs par défault de '0000' a étais attribuer a min a la place");
-            this.min = "0000";
-        }
-        try {
-            this.max = properties.getString("maxGenere");
-        } catch (NumberFormatException e) {
-            logger.error("Le paramètres 'minGenere' dans properties n'est pas un nombre. La de '9999' a étais affecter a 'max' a la place");
-            this.max = "9999";
+            return false;
         }
 
         try {
-            this.nombreUnit = Integer.parseInt(properties.getString("codeNumbers"));
+            this.toursTotale = Integer.parseInt(properties.getProperty("toursTotale"));
+        } catch (NumberFormatException e) {
+            logger.error("Le paramètre toursTotale dans properties n'équivaut pas à un nombre. Il y aura 4 tours par défaut");
+        }
+
+        try {
+            this.min = properties.getProperty("minGenere");
+            int negatif = Integer.parseInt(this.min);
+        } catch (NumberFormatException e) {
+            logger.error("Le paramètre 'minGenere' dans properties n'est pas un nombre. La valeurs par défault de '0000' a étais attribuer a la place");
+        }
+        try {
+            this.max = properties.getProperty("maxGenere");
+            Integer.parseInt(this.max);
+        } catch (NumberFormatException e) {
+            logger.error("Le paramètres 'minGenere' dans properties n'est pas un nombre. La de '9999' a étais affecter a la place");
+        }
+
+        try {
+            this.nombreUnit = Integer.parseInt(properties.getProperty("codeNumbers"));
         } catch (NumberFormatException e) {
             logger.error("Le paramètres nombreUnit dans properties n'equivaut pas a un nombre. La valeurs de 4 lui a étais affecter par default");
-            this.nombreUnit = 4;
         }
-        this.devMode = Boolean.parseBoolean(properties.getString("devMode"));
+        this.devMode = Boolean.parseBoolean(properties.getProperty("devMode"));
+
+
+      return true;
     }
+
 
     //Getter des instances paramètres
     public int getToursTotale() {

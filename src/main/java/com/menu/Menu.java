@@ -8,11 +8,15 @@ public class Menu {
     //Initialisation du logger pour menu
     private static Logger logger = Logger.getLogger(Menu.class);
 
-    public void startMenuUser() {
+    public boolean startMenuUser() {
         logger.info("Arriver dans le menu startMenu");
         //Initialisation des instances
         boolean isValid = false;
         Mode choixObj = new Mode();
+        if (!choixObj.isParamValid()){
+            System.out.println("Le fichier properties est introuvable ");
+            return false;
+        }
         Scanner input = new Scanner(System.in);
         char option = '\0';
         //===== Menu d accueil ======
@@ -21,7 +25,7 @@ public class Menu {
             System.out.println("Menu principal");
             System.out.println("Entré une lettre correspondant à l'option désirée");
             System.out.println("A-Challenger");
-            System.out.println("B-Déffenseur");
+            System.out.println("B-Défenseur");
             System.out.println("C-Duel");
             System.out.println("D-Quitter");
             logger.info("Chargement du menu principal");
@@ -30,7 +34,7 @@ public class Menu {
             option = input.next().charAt(0); // ===== Initialisation de la var char options afin de récupérer le 1er caractère saisie =======
             System.out.println("\n");
             // Utilisation de switch contient les choix du menu
-            logger.debug("Choix options entree par l utilisateur : " + option);
+            logger.debug("Choix options entree par l'utilisateur : " + option);
             switch (option) {
                 case 'A'://===== Choix A envoie méthode challenger ======
                     logger.info("Choix du mode Challenger");
@@ -39,9 +43,9 @@ public class Menu {
                     isValid = true;
                     break;
                 case 'B'://====== Choix B envoie méthode defensseur =======
-                    logger.info("Choix du mode Déffenseur");
+                    logger.info("Choix du mode Défenseur");
                     System.out.println("============================ Bienvenue dans le mode Déffenseur =========================== \n");
-                    choixObj.deffenseur();
+                    choixObj.defenseur();
                     isValid = true;
                     break;
                 case 'C'://====== Choix C envoie méthode duel =======
@@ -52,7 +56,7 @@ public class Menu {
                     isValid = true;
                     break;
                 case 'D'://====== Choix E termine le programme =======
-                    logger.info("Choix quitter l application");
+                    logger.info("Choix quitter l'application");
                     System.out.println("Vous avez choisi de Quitter");
                     isValid = true;
                     break;
@@ -64,8 +68,8 @@ public class Menu {
             }
 
         }
+    return true;
     }
-
     //Menu affiché en fin de partie
     public boolean endMenuUser() {
         logger.info("Arriver dans le menu endMenu");
@@ -99,7 +103,7 @@ public class Menu {
                      isValid = true;
                      break;
                  default:
-                     logger.error("Entrée invalide vérifier que votre réponse soit bien une des lettres majuscule");
+                     System.out.println("Entrée invalide vérifier que votre réponse soit bien une des lettres majuscule");
                      isValid = false;//En cas d'entrer invalide perpétue la boucle
              }
              System.out.println(" \n ");

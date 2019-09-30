@@ -23,13 +23,12 @@ public class Mode {
     private boolean isParamValid;
     private int tours;
 
+
     public Mode() {
         this.settingsObj = new Parametres();
         this.menuObj = new Menu();
         this.userObj = new User();
         this.ordiObj = new Ordi();
-        this.codeUser = "";
-        this.codeOrdi = "1";
         this.rejouer = false;
         this.isParamValid = settingsObj.init();
         this.nombreUnit = settingsObj.getNombreUnit();
@@ -38,10 +37,22 @@ public class Mode {
         this.tours = settingsObj.getToursTotale();
 
     }
+    public void setNombreUnit(int nombreUnit) {
+        this.nombreUnit = nombreUnit;
+    }
+
+    public void setMaxString(String maxString) {
+        this.maxString = maxString;
+    }
+
+    public void setMinString(String minString) {
+        this.minString = minString;
+    }
 
     public boolean isParamValid() {
         return isParamValid;
     }
+
     public int getNombreUnit() {
         return nombreUnit;
     }
@@ -116,6 +127,8 @@ public class Mode {
         System.out.println("            Il y aura " + getNombreUnit() + " chiffres par combinaison");
         System.out.println("                        Bonnes chances !!!");
         System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+        System.out.println("BORNE MIN  DEBUT MODE : "+borneMin);
+        System.out.println("BORNE MAX DEBUT MODE : "+borneMax);
         //Définition combinaison utilisateur
         codeUser = userObj.defineCodeUser(true);
         //Définition 1 er combinaison Ordi
@@ -137,6 +150,7 @@ public class Mode {
                 ordiObj.compare(codeOrdi, codeUser);
                 System.out.println("\n");
                 // codeTempo = ordiObj.newCodeOrdi(codeOrdi, codeUser);
+
                 String[] retour = ordiObj.newCodeOrdi(codeUser, codeOrdi, borneMin, borneMax);
                 codeOrdi = retour[0];
                 borneMin = retour[2];
@@ -152,10 +166,7 @@ public class Mode {
         }
         rejouer = menuObj.endMenuUser();
         if (rejouer == true)
-            this.maxString =getMaxString();
-            this.minString = getMinString();
-            this.nombreUnit = getNombreUnit();
-            defenseur(); //Condition pour relancer même mode
+           defenseur(); //Condition pour relancer même mode
 
     }
 

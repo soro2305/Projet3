@@ -41,7 +41,6 @@ public class Parametres {
             input = new FileInputStream("params.properties");
             properties.load(input);
         } catch (IOException e) {
-            logger.error("Le fichier properties est introuvable ");
             return false;
         }
 
@@ -53,15 +52,15 @@ public class Parametres {
 
         try {
             this.min = properties.getProperty("minGenere");
-            int negatif = Integer.parseInt(this.min);
+             Integer.parseInt(this.min);
         } catch (NumberFormatException e) {
-            logger.error("Le paramètre 'minGenere' dans properties n'est pas un nombre. La valeurs par défault de '0000' a étais attribuer a la place");
+            logger.error("Le paramètre 'minGenere' dans properties n'est pas un nombre. '0000' a étais affecter par défaut");
         }
         try {
             this.max = properties.getProperty("maxGenere");
             Integer.parseInt(this.max);
         } catch (NumberFormatException e) {
-            logger.error("Le paramètres 'minGenere' dans properties n'est pas un nombre. La de '9999' a étais affecter a la place");
+            logger.error("Le paramètres 'maxGenere' dans properties n'est pas un nombre.'9999' a étais affecter par défaut");
         }
 
         try {

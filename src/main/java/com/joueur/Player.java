@@ -36,8 +36,8 @@ public class Player {
             }
         } catch (StringIndexOutOfBoundsException e) {//Handle L'exception OutOfBounds si mauvais paramétrage du fichier properties
             System.out.println();
-            logger.error("Le parametres properties 'minGenere' dois etre egale en nombres de chiffres au parametres 'maxGenere'");
-            logger.error("Le nombres de chiffres du parametres properties 'maxGenere' doit correspondre au nombre du parametres 'codeNumbers'");
+            logger.error("Le parametres properties 'minGenere' dois etre égale en nombres de chiffres au parametres 'maxGenere'");
+            logger.error("Le nombres de chiffres du paramètre properties 'maxGenere' doit correspondre au montant du paramètres 'codeNumbers'");
             System.exit(-1);//Quitte l'application en conséquence de l'exception
 
         }

@@ -14,18 +14,24 @@ public class Ordi extends Player {
     public String generCodeString(String min, String max) {
         int minI = Integer.parseInt(min);
         int maxI = Integer.parseInt(max);
+
         int stockReponse = genere.nextInt((maxI - minI) + 1) + minI; //Classe Random utiliser pour définir les bornes max min de la combinaison
         String newCode = Integer.toString(stockReponse); //Conversion de la combi en string
+
         return newCode; //Retour combinaison String
     }
 
     // Génère nouvelles unités int
     public int generCodeInt(int min, int max) {
-        int newsUnit = genere.nextInt((max - min) + 1) + min; //Classe Random utiliser pour définir les bornes max min de la combinaison
+            int newsUnit = genere.nextInt((max - min) + 1) + min; //Classe Random utiliser pour définir les bornes max min de la combinaison
+
         return newsUnit; //Retour combinaison
+
     }
 
     public String[] newCodeOrdi(String codeUser, String codeOrdi1, String min1, String max1) {
+
+
         //Initialisation variables
         int unitPlusHaut;
         int unitPlusBas;
@@ -56,7 +62,10 @@ public class Ordi extends Player {
                         int unitCodeOrdi = Character.getNumericValue(codeOrdi1.charAt(i));
                         //Conditions pour comparer si les futur unités combi Ordi doivent êtres "-+="
                         if (unitCodeUser < unitCodeOrdi) {
-                            //Méthode random génére news units.
+
+                            if (unitCodeUser==0 ){
+                                unitPlusBas = generCodeInt((unitCodeMin ), (unitCodeOrdi ));//Borne min dernière min+1, borne max ordi-1 pr évité les doublons
+                            }else
                             unitPlusBas = generCodeInt((unitCodeMin + 1), (unitCodeOrdi - 1));//Borne min dernière min+1, borne max ordi-1 pr évité les doublons
                             stockCode[i] = unitPlusBas;//Stocke unit new code
                             previousMax[i] = unitCodeOrdi;//Stocke news unit Max
@@ -64,6 +73,9 @@ public class Ordi extends Player {
                         }
                         //Boucle génére nouvelle unité tant que plus basse que précédente
                         if (unitCodeUser > unitCodeOrdi) {
+                            if (unitCodeUser == 9){
+                                unitPlusHaut = generCodeInt((unitCodeOrdi ), (unitCodeMax));//Borne min dernière min+1, borne max ordi-1 pr évité les doublons
+                            }else
                             //Méthode random génére news units.
                             unitPlusHaut = generCodeInt((unitCodeOrdi + 1), (unitCodeMax - 1));//Borne min ordi+1, borne max dernière max-1 pr évité les doublons
                             stockCode[i] = unitPlusHaut;//Stocke unit new code
@@ -98,6 +110,7 @@ public class Ordi extends Player {
         retour[1] = newCodeMax;
         retour[2] = newCodeMin;
         //retour réponses en String array
+
         return retour;
     }
 

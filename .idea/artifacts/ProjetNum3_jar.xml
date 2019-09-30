@@ -2,9 +2,6 @@
   <artifact type="jar" name="ProjetNum3:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/ProjetNum3_jar</output-path>
     <root id="archive" name="ProjetNum3.jar">
-      <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" />
-      </element>
       <element id="module-output" name="ProjetNum3" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/apache/camel/camel-log/3.0.0-RC1/camel-log-3.0.0-RC1.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/apache/camel/camel-main/3.0.0-RC1/camel-main-3.0.0-RC1.jar" path-in-jar="/" />

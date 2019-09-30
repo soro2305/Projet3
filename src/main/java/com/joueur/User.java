@@ -13,7 +13,6 @@ public class User extends Player {
     //Méthode qui permet à l'utilisateur d'entrée sa combinaison
     public String defineCodeUser(boolean defineOrAttempt) {
 
-        int saisieExeption;
         boolean nombreChiffre = false;
         boolean chiffreExeption ;
 
@@ -30,7 +29,7 @@ public class User extends Player {
              chiffreExeption = false;
 
             try {
-                saisieExeption = Integer.parseInt(this.saisie);
+                Integer.parseInt(this.saisie);
             } catch (NumberFormatException e) {
                 System.out.println("Entrer invalide !!! La saisie ne doit comporter que "+nombreUnit.getNombreUnit()+" chiffre compris entre 0 et 9 !!!");
                 chiffreExeption = true;

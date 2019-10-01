@@ -1,15 +1,1 @@
-2019-09-27 05:41:09 ERROR Player:39 - Le parametres properties 'minGenere' dois etre egale en nombres de chiffres au parametres 'maxGenere'
-2019-09-27 05:41:09 ERROR Player:40 - Le nombres de chiffres du parametres properties 'maxGenere' doit correspondre au nombre du parametres 'codeNumbers'
-2019-09-27 05:50:50 ERROR Menu:66 - Entrée invalide vérifier que votre réponse soit bien une des lettres majuscule
-2019-09-27 05:50:59 ERROR Menu:66 - Entrée invalide vérifier que votre réponse soit bien une des lettres majuscule
-2019-09-27 05:51:06 ERROR Menu:66 - Entrée invalide vérifier que votre réponse soit bien une des lettres majuscule
-2019-09-27 05:51:54 ERROR Main:23 - Une erreur inconnue est survenue (class java.lang.StringIndexOutOfBoundsException)
-2019-09-27 17:39:21 ERROR Player:39 - Le parametres properties 'minGenere' dois etre egale en nombres de chiffres au parametres 'maxGenere'
-2019-09-27 17:39:21 ERROR Player:40 - Le nombres de chiffres du parametres properties 'maxGenere' doit correspondre au nombre du parametres 'codeNumbers'
-2019-09-27 17:57:26 ERROR Main:23 - Une erreur inconnue est survenue (class java.lang.StringIndexOutOfBoundsException)
-2019-09-27 17:57:44 ERROR Main:23 - Une erreur inconnue est survenue (class java.lang.StringIndexOutOfBoundsException)
-2019-09-27 17:57:50 ERROR Menu:66 - Entrée invalide vérifier que votre réponse soit bien une des lettres majuscule
-2019-09-27 17:58:47 ERROR Menu:66 - Entrée invalide vérifier que votre réponse soit bien une des lettres majuscule
-2019-09-27 17:58:53 ERROR Main:23 - Une erreur inconnue est survenue (class java.lang.IllegalArgumentException)
-2019-09-27 18:08:06 ERROR Menu:66 - Entrée invalide vérifier que votre réponse soit bien une des lettres majuscule
-2019-09-27 18:08:19 ERROR Main:23 - Une erreur inconnue est survenue (class java.lang.IllegalArgumentException)
+2019-10-01 19:30:31 ERROR Main:27 - Une erreur inconnue est survenue (class java.nio.file.NoSuchFileException)

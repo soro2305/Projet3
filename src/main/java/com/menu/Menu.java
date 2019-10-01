@@ -2,13 +2,14 @@ package com.menu;
 
 import org.apache.log4j.Logger;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Menu {
     //Initialisation du logger pour menu
     private static Logger logger = Logger.getLogger(Menu.class);
 
-    public boolean startMenuUser() {
+    public boolean startMenuUser() throws IOException {
         logger.info("Arriver dans le menu startMenu");
         //Initialisation des instances
         boolean isValid = false;
@@ -71,7 +72,7 @@ public class Menu {
     return true;
     }
     //Menu affiché en fin de partie
-    public boolean endMenuUser() {
+    public boolean endMenuUser() throws IOException {
         logger.info("Arriver dans le menu endMenu");
         //Initialisation des instances
         Scanner input = new Scanner(System.in);

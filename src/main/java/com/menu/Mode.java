@@ -4,6 +4,9 @@ import com.joueur.Ordi;
 import com.joueur.Player;
 import com.joueur.User;
 import org.apache.log4j.Logger;
+
+import java.io.IOException;
+
 //Classe qui contient les méthodes challenger défenseur et duel pour sélectionner le mode de jeux
 public class Mode {
     private static Logger logger = Logger.getLogger(Mode.class);
@@ -24,7 +27,7 @@ public class Mode {
     private int tours;
 
 
-    public Mode() {
+    public Mode() throws IOException {
         this.settingsObj = new Parametres();
         this.menuObj = new Menu();
         this.userObj = new User();
@@ -70,7 +73,7 @@ public class Mode {
     }
 
     //Méthode du mode Challenger
-    public void challenger() {
+    public void challenger() throws IOException {
         logger.info("Arriver dans le mode Challenger");
         //Initialisations des instances
         //conteurs for loop
@@ -114,7 +117,7 @@ public class Mode {
     }
 
     //Méthode du mode Deffenseur
-    public void defenseur() {
+    public void defenseur() throws IOException {
         logger.info("Arriver dans le mode Défenseur");
         String getmax = getMaxString();
         String getMin = getMinString();
@@ -127,8 +130,7 @@ public class Mode {
         System.out.println("            Il y aura " + getNombreUnit() + " chiffres par combinaison");
         System.out.println("                        Bonnes chances !!!");
         System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
-        System.out.println("BORNE MIN  DEBUT MODE : "+borneMin);
-        System.out.println("BORNE MAX DEBUT MODE : "+borneMax);
+
         //Définition combinaison utilisateur
         codeUser = userObj.defineCodeUser(true);
         //Définition 1 er combinaison Ordi
@@ -171,7 +173,7 @@ public class Mode {
     }
 
     //Méthode duel chacun son tour définit une combi, le premier à trouver gagne
-    public void duel() {
+    public void duel() throws IOException {
         logger.info("Arriver dans le mode Duel");
         //Stock borne min max provisoir
         String getMax = getMaxString();

@@ -14,7 +14,7 @@ Il comporte 3 modes de jeu :
  Importez le répertoire Projet3 depuis: 
  https://github.com/soro2305/Projet3
  
-#### Lancer le programme
+### Lancer le programme
 Pour cela, depuis le terminal, rendez-vous dans le dossier "Projet3" et tapez la commande : java -jar Projet3.jar
 Pour modifier les paramètres du jeu rendez-vous dans le fichier params.properties.
 Par exemple pour activer le mode développeur changeait la valeur false par true.
@@ -22,6 +22,6 @@ Pour changer le nombre de tours modifier la valeur de tourstotale par le nombre 
 
 
 
-##### Utiliser le programme
+### Utiliser le programme
 
 Suivez les instructions du programme, naviguer dans les menus avec les touches majuscules A B, C ou D.

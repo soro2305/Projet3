@@ -37,26 +37,26 @@ public class Menu {
             // Utilisation de switch contient les choix du menu
             logger.debug("Choix options entree par l'utilisateur : " + option);
             switch (option) {
-                case 'A'://===== Choix A envoie méthode challenger ======
+                case 'A' | 'a'://===== Choix A envoie méthode challenger ======
                     logger.info("Choix du mode Challenger");
                     System.out.println("============================= Bienvenue dans le mode Challenger ========================== \n");
                     choixObj.challenger();
                     isValid = true;
                     break;
-                case 'B'://====== Choix B envoie méthode defensseur =======
+                case 'B'|'b'://====== Choix B envoie méthode defensseur =======
                     logger.info("Choix du mode Défenseur");
                     System.out.println("============================ Bienvenue dans le mode Déffenseur =========================== \n");
                     choixObj.defenseur();
                     isValid = true;
                     break;
-                case 'C'://====== Choix C envoie méthode duel =======
+                case 'C'|'c'://====== Choix C envoie méthode duel =======
                     logger.info("Choix du mode duel");
                     System.out.println("=========================== Bienvenue dans le mode Duel ================================== \n");
                     System.out.println("Le premier à trouver la combinaison adverse gagne la partie !!! \n");//Pas de manches dans ce mode
                     choixObj.duel();
                     isValid = true;
                     break;
-                case 'D'://====== Choix E termine le programme =======
+                case 'D'|'d'://====== Choix E termine le programme =======
                     logger.info("Choix quitter l'application");
                     System.out.println("Vous avez choisi de Quitter");
                     isValid = true;

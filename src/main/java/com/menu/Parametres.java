@@ -1,16 +1,7 @@
 package com.menu;
 
-//import com.Main;
 import org.apache.log4j.Logger;
-
-//import java.io.FileInputStream;
-//import java.io.FileNotFoundException;
 import java.io.IOException;
-//import java.io.InputStream;
-//import java.nio.file.Files;
-//import java.nio.file.Paths;
-//import java.util.Properties;
-//import java.util.PropertyResourceBundle;
 import java.util.ResourceBundle;
 
 
@@ -37,8 +28,8 @@ public class Parametres {
         this.nombreUnit = 4;
         this.devMode = false;
     }
+    //Initialise les valeurs
     //Contient les try catch pour gérer les exceptions, relatives à la validité des valeurs, du fichier properties
-
     public boolean init() throws IOException {
         //Il faut commenter une des deux lignes selon que l'on soit sur l'ide ou que l'on utilise le jar
         //fonctionne a partir de l ide

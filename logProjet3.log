@@ -1,2 +1,3 @@
 2019-10-01 22:47:42 ERROR Main:24 - Une erreur inconnue est survenue (class java.nio.file.NoSuchFileException)
 2019-10-01 22:48:25 ERROR Main:24 - Une erreur inconnue est survenue (class java.nio.file.NoSuchFileException)
+2019-10-06 17:34:22 ERROR Menu:67 - Entrée invalide vérifier que votre réponse soit bien une des lettres majuscule

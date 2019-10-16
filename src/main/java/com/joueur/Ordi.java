@@ -3,14 +3,26 @@ package com.joueur;
 import com.menu.Parametres;
 import org.apache.log4j.Logger;
 
-//Classe User regroupe les fonctionnalités propres à l'Ordi, générateur de combinaison, conversion, comparaison
+
+/**
+ * <p>Regroupe les fonctionnalités propres à l'Ordi</p>
+ * <ul>
+ *    <ul>Générateur de combinaison</ul>
+ *    <ul>Conversion de sting en int</ul>
+ *    <ul>Comparaison de combinaison</ul>
+ * </ul>
+ */
 public class Ordi extends Player {
     //Initialisation du logger pour player
-    private static Logger logger = Logger.getLogger(Ordi.class);
     //Création d'objets settings pr importé les paramètres utiles
     Parametres settingsObj = new Parametres();
 
-    //Méthode qui génère un code aléatoire String
+    /**
+     * Génère un code aléatoire String entre les bornes minimum et maximum
+     * @param min borne minimum
+     * @param max borne maximum
+     * @return nouveau chiffres String générer
+     * */
     public String generCodeString(String min, String max) {
         int minI = Integer.parseInt(min);
         int maxI = Integer.parseInt(max);
@@ -21,17 +33,26 @@ public class Ordi extends Player {
         return newCode; //Retour combinaison String
     }
 
-    // Génère nouvelles unités int
-    public int generCodeInt(int min, int max) {
+    /**
+     * Génère un code aléatoire int entre les bornes minimum et maximum
+     * @param min borne minimum
+     * @param max borne maximum
+     * @return nouveau chiffres int générer
+     */    public int generCodeInt(int min, int max) {
             int newsUnit = genere.nextInt((max - min) + 1) + min; //Classe Random utiliser pour définir les bornes max min de la combinaison
 
         return newsUnit; //Retour combinaison
 
     }
-
+    /**
+     * Permet à l'ordi de générer une combinaison  à partir des indications de sa précédente combinaison
+     * @param codeOrdi1 Combinaison générer par l'ordi
+     * @param codeUser Combinaison générer par l'user
+     * @param min1 Précédente borne minimum
+     * @param max1 Précédente borne maximum
+     * @return Array Tableau comprenant nouvelle combinaison ordi ainsi que nouvelle borne Min et Max
+     */
     public String[] newCodeOrdi(String codeUser, String codeOrdi1, String min1, String max1) {
-
-
         //Initialisation variables
         int unitPlusHaut;
         int unitPlusBas;
@@ -114,8 +135,11 @@ public class Ordi extends Player {
         return retour;
     }
 
-    //Méthode qui converti un Array de String en String
-    public static String ArrayToString(String[] strArray) {
+    /**
+     * Converti un Array de String en String
+     * @param strArray array de string a convertir en string
+     * @return nouveau string
+     */    public static String ArrayToString(String[] strArray) {
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < strArray.length; i++) {
             stringBuilder.append(strArray[i]);

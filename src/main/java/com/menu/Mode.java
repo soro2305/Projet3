@@ -7,8 +7,12 @@ import org.apache.log4j.Logger;
 
 import java.io.IOException;
 
-//Classe qui contient les méthodes challenger défenseur et duel pour sélectionner le mode de jeux
+
+/***
+ * <p>Contient les méthodes challenger défenseur et duel pour sélectionner le mode de jeux </p>
+ */
 public class Mode {
+
     private static Logger logger = Logger.getLogger(Mode.class);
     private Parametres settingsObj;
     private Menu menuObj;
@@ -20,13 +24,13 @@ public class Mode {
     private int nombreUnit;
     private String maxString;
     private String minString;
-
-
-
     private boolean isParamValid;
     private int tours;
 
-
+    /***
+     * Constructeur de la classe Mode
+     * @throws IOException Si jamais une exception est relevé
+     */
     public Mode() throws IOException {
         this.settingsObj = new Parametres();
         this.menuObj = new Menu();
@@ -40,39 +44,50 @@ public class Mode {
         this.tours = settingsObj.getToursTotale();
 
     }
-    public void setNombreUnit(int nombreUnit) {
-        this.nombreUnit = nombreUnit;
-    }
 
-    public void setMaxString(String maxString) {
-        this.maxString = maxString;
-    }
+//Retour valeurs paramètres
 
-    public void setMinString(String minString) {
-        this.minString = minString;
-    }
-
+    /***
+     * Récupère le boolean isParamValid
+     * @return false si fichier properties introuvable
+     */
     public boolean isParamValid() {
         return isParamValid;
     }
 
+    /**
+     * Récupère le nombres de chiffres max de la combinaison
+     * @return le nombres de chiffres max de la combinaison définit dans le fichier properties
+     */
     public int getNombreUnit() {
         return nombreUnit;
     }
-
+    /**
+     * Récupère la borne max de la combinaison
+     * @return la borne max de la combinaison définit dans le fichier properties
+     */
     public String getMaxString() {
         return maxString;
     }
-
+    /**
+     * Récupère la borne min de la combinaison
+     * @return la borne min de la combinaison définit dans le fichier properties
+     */
     public String getMinString() {
         return minString;
     }
-
+    /**
+     * Récupère le nombres de tours max de la combinaison
+     * @return le nombres de tours max de la combinaison définit dans le fichier properties
+     */
     public int getTours() {
         return tours;
     }
 
-    //Méthode du mode Challenger
+    /***
+     * Lance le mode challenger
+     * @throws IOException
+     */
     public void challenger() throws IOException {
         logger.info("Arriver dans le mode Challenger");
         //Initialisations des instances
@@ -116,8 +131,10 @@ public class Mode {
         if (rejouer == true) challenger(); //Condition pour relancer même mode
     }
 
-    //Méthode du mode Deffenseur
-    public void defenseur() throws IOException {
+    /***
+     * Lance le mode defenseur
+     * @throws IOException
+     */    public void defenseur() throws IOException {
         logger.info("Arriver dans le mode Défenseur");
         String getmax = getMaxString();
         String getMin = getMinString();
@@ -172,7 +189,10 @@ public class Mode {
 
     }
 
-    //Méthode duel chacun son tour définit une combi, le premier à trouver gagne
+    /***
+     * Lance le mode duel
+     * @throws IOException
+     */
     public void duel() throws IOException {
         logger.info("Arriver dans le mode Duel");
         //Stock borne min max provisoir
@@ -186,7 +206,6 @@ public class Mode {
         //Définition combinaison Ordi
         codeOrdi =  ordiObj.generCodeString(getMinString(), getMaxString());
         //Définition tentative Ordi
-
         tentativeOrdi =  ordiObj.generCodeString(getMinString(), getMaxString());
 
         //Infos qui indique  les valeurs en fonction des paramètres

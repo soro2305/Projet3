@@ -1,1 +1,3 @@
 2019-10-01 19:30:31 ERROR Main:27 - Une erreur inconnue est survenue (class java.nio.file.NoSuchFileException)
+2019-10-15 16:39:21 ERROR Main:27 - Une erreur inconnue est survenue (class java.lang.StringIndexOutOfBoundsException)
+2019-10-15 18:45:03 ERROR Menu:67 - Entrée invalide vérifier que votre réponse soit bien une des lettres majuscule

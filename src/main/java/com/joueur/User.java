@@ -3,15 +3,20 @@ package com.joueur;
 import com.menu.Parametres;
 import org.apache.log4j.Logger;
 
-//Classe User regroupe les fonctionnalités propres à l'User, essentiellement les saisis claviers
+
+/**
+ * Regroupe les fonctionnalités propres à l'User, les saisis claviers
+ */
 public class User extends Player {
     //Initialisation du logger pour user
-    private static Logger logger = Logger.getLogger(User.class);
     Parametres nombreUnit = new Parametres();
     String saisie = "";
 
-    //Méthode qui permet à l'utilisateur d'entrée sa combinaison
-    public String defineCodeUser(boolean defineOrAttempt) {
+    /**
+     * Définit la combinaison de l'utilisateur
+     * @param defineOrAttempt Si true, définit sa propre combinaison. Si false, devine la combinaison de l'ordi
+     * @return La combinaison saisie
+     */    public String defineCodeUser(boolean defineOrAttempt) {
 
         boolean nombreChiffre = false;
         boolean chiffreExeption ;

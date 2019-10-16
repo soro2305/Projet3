@@ -5,7 +5,10 @@ import java.io.IOException;
 import java.util.ResourceBundle;
 
 
-// Classe qui gère les paramètres
+
+/**
+ * Gère les paramètres du jeu définit dans le fichier properties
+ */
 public class Parametres {
     //Initialisation du logger paramètres
     private static Logger logger = Logger.getLogger(Parametres.class);
@@ -19,7 +22,11 @@ public class Parametres {
     private boolean devMode;
 
 
-    //Constructeur paramètre initialise des valeurs par défaut en cas d'erreur
+
+
+    /**
+     * Constructeur paramètre initialise des valeurs par défaut en cas d'erreur
+     */
     public Parametres() {
         this.properties = null;
         this.toursTotale = 4;
@@ -28,8 +35,12 @@ public class Parametres {
         this.nombreUnit = 4;
         this.devMode = false;
     }
-    //Initialise les valeurs
-    //Contient les try catch pour gérer les exceptions, relatives à la validité des valeurs, du fichier properties
+
+    /**
+     * Contient les try catch pour gérer les exceptions, relatives à la validité des valeurs, du fichier properties
+     * @return true si aucune erreur détéctée
+     * @throws IOException
+     */
     public boolean init() throws IOException {
         //Il faut commenter une des deux lignes selon que l'on soit sur l'ide ou que l'on utilise le jar
         //fonctionne a partir de l ide
@@ -68,23 +79,39 @@ public class Parametres {
     }
 
 
-    //Getter des instances paramètres
+
+    /**
+     * Récupére la valeur ToursTotale initialiser dans le fichier properties
+     * @return le nombre de tours totale de la partie
+     */
     public int getToursTotale() {
         return toursTotale;
     }
-
+    /**
+     * Récupére la valeur min initialiser dans le fichier properties
+     * @return la valeur de la borne min du générateur
+     */
     public String getMin() {
         return min;
     }
-
+    /**
+     * Récupére la valeur max initialiser dans le fichier properties
+     * @return la valeur de la borne max du générateur
+     */
     public String getMax() {
         return max;
     }
-
+    /**
+     * Récupére la valeur true ou false du mode dev dans le fichier properties
+     * @return la valeur du mode dev
+     */
     public boolean isDevMode() {
         return devMode;
     }
-
+    /**
+     * Récupére la valeur nombreUnit initialiser dans le fichier properties
+     * @return le nombre de chiffres de la combinaison
+     */
     public int getNombreUnit() {
         return nombreUnit;
     }

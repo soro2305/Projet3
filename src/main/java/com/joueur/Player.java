@@ -5,13 +5,21 @@ import org.apache.log4j.Logger;
 
 import java.util.Random;
 import java.util.Scanner;
-//Classe parent d'ordi et user elle contient toutes les méthodes de ces dernieres
+
+/**
+ * Classe parent des classes Ordi et User elle contient toutes les méthodes de ces dernieres
+ */
 public class Player {
     //Initialisation des instances
-    private static Logger logger = Logger.getLogger(Player.class);
+    protected static Logger logger = Logger.getLogger(Player.class);
     Random genere = new Random();
     Scanner saisieUser = new Scanner(System.in);
 
+    /**
+     * Compare les combinaisons et affiche les indications à travers les signes =-+
+     * @param codeUser combinaison de l'utilisateur
+     * @param codeOrdi combinaison de l'ordi
+     */
     public void compare(String codeUser, String codeOrdi) {
 
         try {//Handle L'exception OutOfBounds si mauvais paramétrage du fichier properties
@@ -44,7 +52,13 @@ public class Player {
     }
 
 
-    //Méthode qui génère un code aléatoire String
+
+    /**
+     * Génère un code aléatoire String entre les bornes minimum et maximum
+     * @param min borne minimum
+     * @param max borne maximum
+     * @return nouveau chiffres générer
+     */
     public String generCodeString(String min, String max) {
         int minI = Integer.parseInt(min);
         int maxI = Integer.parseInt(max);
@@ -53,19 +67,37 @@ public class Player {
         return newCode; //Retour combinaison String
     }
 
-    //Génère news unit int
+    /**
+     * Génère un code aléatoire int entre les bornes minimum et maximum
+     * @param min borne minimum
+     * @param max borne maximum
+     * @return nouveau chiffres int générer
+     */
     public int generCodeInt(int min, int max) {
         int newsUnit = genere.nextInt((max - min) + 1) + min; //Classe Random utiliser pour définir les bornes max min de la combinaison
         return newsUnit; //Retour combinaison
     }
 
-    //Méthode qui permet à l'utilisateur d'entrée sa combinaison
+
+    /**
+     * Définit la combinaison de l'utilisateur
+     * @param defineOrAttempt Si true, définit sa propre combinaison. Si false, devine la combinaison de l'ordi
+     * @return La combinaison saisie
+     */
     public String defineCodeUser(boolean defineOrAttempt) {
         System.out.println("Veuillez définir une combinaison que l'Ordi doit deviner !!!");
         return saisieUser.nextLine();// Retourne saisie du Scanner
     }
 
-    //Méthode qui permet à l'ordi de générer une combi à partir des indications de sa précédente combi
+
+    /**
+     * Permet à l'ordi de générer une combinaison  à partir des indications de sa précédente combinaison
+     * @param codeOrdi1 Combinaison générer par l'ordi
+     * @param codeUser Combinaison générer par l'user
+     * @param min1 Précédente borne minimum
+     * @param max1 Précédente borne maximum
+     * @return Array Tableau comprenant nouvelle combinaison ordi ainsi que nouvelle borne Min et Max
+     */
     public String[] newCodeOrdi(String codeOrdi1, String codeUser, String min1, String max1) {
         //Initialisation Objets variables
         Parametres settingsObj = new Parametres();
@@ -121,7 +153,12 @@ public class Player {
         return retour;
     }
 
-    //Méthode qui converti un Array de String en String
+
+    /**
+     * Converti un Array de String en String
+     * @param strArray array de string a convertir en string
+     * @return nouveau string
+     */
     public static String ArrayToString(String[] strArray) {
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < strArray.length; i++) {

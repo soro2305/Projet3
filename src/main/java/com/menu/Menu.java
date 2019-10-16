@@ -5,10 +5,18 @@ import org.apache.log4j.Logger;
 import java.io.IOException;
 import java.util.Scanner;
 
+/***
+ * Contient les menus de début et de fin de partie
+ */
 public class Menu {
     //Initialisation du logger pour menu
     private static Logger logger = Logger.getLogger(Menu.class);
 
+    /**
+     * Menu qui permet de sélectionner le mode de jeux
+     * @return false si saisie incorrecte
+     * @throws IOException
+     */
     public boolean startMenuUser() throws IOException {
         logger.info("Arriver dans le menu startMenu");
         //Initialisation des instances
@@ -71,6 +79,12 @@ public class Menu {
         }
     return true;
     }
+
+    /**
+     * Menu qui permet de rejouer retourner au menu principale ou quitter l'application
+     * @return false si saisie incorrecte
+     * @throws IOException
+     */
     //Menu affiché en fin de partie
     public boolean endMenuUser() throws IOException {
         logger.info("Arriver dans le menu endMenu");

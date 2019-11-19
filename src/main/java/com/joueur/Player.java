@@ -7,18 +7,44 @@ import java.util.Random;
 import java.util.Scanner;
 
 /**
- * Classe parent des classes Ordi et User elle contient toutes les méthodes de ces dernieres
+ * <b>Classe parent des classes Ordi et User. Elle désigne toutes les fonctionnalités d'un joueur :</b>
+ * <ul>
+ *      <li>Générer une combinaison a trouvé par l'utilisateur</li>
+ *      <li>Proposer une solution initiale</li>
+ *      <li>Proposer une solution à partir des indications donner par l'utilisateur</li>
+ *      <li>Définir une combinaison a trouvé par l'Ordi</li>
+ *      <li>Définir une proposition de solution </li>
+ *      <li>Comparer sa combinaison est celle de l'adversaire afin de fournir des indications -+= pour guider l'adversaire</li>
+ * </ul>
+ *
+ * @author Amet Soro
+ * @version 1.0
  */
 public class Player {
-    //Initialisation des instances
+    /**
+     * Instanciation d'objet du type Logger servant a généré les logs Player.
+     */
     protected static Logger logger = Logger.getLogger(Player.class);
+    /**
+     * Instanciation d'objet du type Random servant a généré un chiffre aléatoire.
+     */
     Random genere = new Random();
+    /**
+     * Instanciation d'objet du type Scanner servant a saisir la combinaison user.
+     */
     Scanner saisieUser = new Scanner(System.in);
 
     /**
-     * Compare les combinaisons et affiche les indications à travers les signes =-+
-     * @param codeUser combinaison de l'utilisateur
-     * @param codeOrdi combinaison de l'ordi
+     * <p>Compare les combinaisons avec les opérations : </p>
+     * <ul>
+     *     <li>Plus grand que</li>
+     *     <li>Plus petit que</li>
+     *     <li>Egale a </li>
+     * </ul>
+     * <p>Puis affiche les indications correspondantes grâce aux signes =-+.</p>
+     *
+     * @param codeUser Combinaison de l'User a comparé à combinaison de l'Ordi.
+     * @param codeOrdi Combinaison de l'Ordi a comparé à combinaison de l'User.
      */
     public void compare(String codeUser, String codeOrdi) {
 
@@ -52,12 +78,12 @@ public class Player {
     }
 
 
-
     /**
-     * Génère un code aléatoire String entre les bornes minimum et maximum
-     * @param min borne minimum
-     * @param max borne maximum
-     * @return nouveau chiffres générer
+     * Génère un code aléatoire String entre les bornes minimums et maximales définies en param.
+     *
+     * @param min Ce param devient la borne minimum du générateur Random de chiffre.
+     * @param max Ce param devient la borne maximum du générateur Random de chiffre.
+     * @return Nouveau chiffre int Random générer.
      */
     public String generCodeString(String min, String max) {
         int minI = Integer.parseInt(min);
@@ -68,10 +94,11 @@ public class Player {
     }
 
     /**
-     * Génère un code aléatoire int entre les bornes minimum et maximum
-     * @param min borne minimum
-     * @param max borne maximum
-     * @return nouveau chiffres int générer
+     * Génère un code aléatoire int entre les bornes minimums et maximales définies en param.
+     *
+     * @param min Ce param devient la borne minimum du générateur Random de chiffre.
+     * @param max Ce param devient la borne maximum du générateur Random de chiffre.
+     * @return Nouveau chiffre int Random générer.
      */
     public int generCodeInt(int min, int max) {
         int newsUnit = genere.nextInt((max - min) + 1) + min; //Classe Random utiliser pour définir les bornes max min de la combinaison
@@ -80,9 +107,10 @@ public class Player {
 
 
     /**
-     * Définit la combinaison de l'utilisateur
-     * @param defineOrAttempt Si true, définit sa propre combinaison. Si false, devine la combinaison de l'ordi
-     * @return La combinaison saisie
+     * Définit la combinaison de l'utilisateur.
+     *
+     * @param defineOrAttempt Si true, définit sa propre combinaison. Si false, devine la combinaison de l'ordi.
+     * @return La combinaison saisie par le Scanner.
      */
     public String defineCodeUser(boolean defineOrAttempt) {
         System.out.println("Veuillez définir une combinaison que l'Ordi doit deviner !!!");
@@ -91,12 +119,28 @@ public class Player {
 
 
     /**
-     * Permet à l'ordi de générer une combinaison  à partir des indications de sa précédente combinaison
-     * @param codeOrdi1 Combinaison générer par l'ordi
-     * @param codeUser Combinaison générer par l'user
-     * @param min1 Précédente borne minimum
-     * @param max1 Précédente borne maximum
-     * @return Array Tableau comprenant nouvelle combinaison ordi ainsi que nouvelle borne Min et Max
+     * Permet à l'ordi de générer une combinaison  à partir des indications de sa précédente combinaison.
+     * <p>Les quatre arguments sont divisés en unités puis converties en int :</p>
+     * <ul>
+     *     <li>codeUser devient unitCodeUser</li>
+     *     <li>codeOrdi1 devient unitCodeOrdi</li>
+     *     <li>min1 devient unitCodeMin</li>
+     *     <li>max1 devient unitCodeMax</li>
+     *     </ul>
+     *     <p>Ensuite unitcodeuser et comparés à unitcodeordi de façon a ce que si : </p>
+     *     <ul>
+     *         <li>unitCodeUser est plus petit que unitCodeOrdi donc le nouveau chiffre généré soit compris entre unitCodeMin et unitCodeOrdi</li>
+     *         <li>unitCodeUser est plus grand que unitCodeOrdi donc le nouveau chiffre généré soit compris entre unitCodeOrdi et unitCodeMax</li>
+     *         <li>unitCodeUser est égale à unitCodeOrdi donc le chiffre généré reste inchangé</li>
+     *     </ul>
+     *     <p>Les nouveaux minimums et maximums sont stocker.</p>
+     *     <p>Les nouvelles valeurs sont converties en String puis retourner sous forme d'Array de String.</p>
+     *
+     * @param codeOrdi1 Combinaison générée par l'ordi.
+     * @param codeUser  Combinaison générée par l'user.
+     * @param min1      Précédente borne minimum.
+     * @param max1      Précédente borne maximum.
+     * @return Array Tableau comprenant nouvelle combinaison ordi ainsi que nouvelle borne Min et Max.
      */
     public String[] newCodeOrdi(String codeOrdi1, String codeUser, String min1, String max1) {
         //Initialisation Objets variables
@@ -155,9 +199,10 @@ public class Player {
 
 
     /**
-     * Converti un Array de String en String
-     * @param strArray array de string a convertir en string
-     * @return nouveau string
+     * Converti un Array de String en String.
+     *
+     * @param strArray Array de string a convertir en string.
+     * @return Nouveau String issue de l'Array de String.
      */
     public static String ArrayToString(String[] strArray) {
         StringBuilder stringBuilder = new StringBuilder();

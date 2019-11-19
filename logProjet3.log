@@ -14,3 +14,17 @@
 2019-10-14 13:32:51 ERROR Menu:67 - Entrée invalide vérifier que votre réponse soit bien une des lettres majuscule
 2019-10-14 13:32:58 ERROR Menu:67 - Entrée invalide vérifier que votre réponse soit bien une des lettres majuscule
 2019-10-14 13:33:32 ERROR Menu:67 - Entrée invalide vérifier que votre réponse soit bien une des lettres majuscule
+2019-10-16 02:35:49 ERROR Main:23 - Une erreur inconnue est survenue (class java.lang.StringIndexOutOfBoundsException)
+2019-10-16 04:21:35 ERROR Main:34 - Une erreur inconnue est survenue (class java.lang.StringIndexOutOfBoundsException)
+2019-10-16 04:22:31 ERROR Menu:79 - Entrée invalide vérifier que votre réponse soit bien une des lettres majuscule
+2019-10-19 20:53:07 ERROR Main:34 - Une erreur inconnue est survenue (class java.lang.StringIndexOutOfBoundsException)
+2019-10-19 21:10:53 ERROR Main:34 - Une erreur inconnue est survenue (class java.util.MissingResourceException)
+2019-10-19 21:16:06 ERROR Parametres:71 - Fichier properties manquant
+2019-10-19 21:19:14 ERROR Menu:92 - Entrée invalide vérifier que votre réponse soit bien une des lettres majuscule
+2019-10-19 21:23:50 ERROR Main:34 - Une erreur inconnue est survenue (class java.lang.StringIndexOutOfBoundsException)
+2019-10-19 21:35:26 ERROR Main:34 - Une erreur inconnue est survenue (class java.lang.NullPointerException)
+2019-10-19 21:37:57 ERROR Menu:92 - Entrée invalide vérifier que votre réponse soit bien une des lettres majuscule
+2019-10-19 21:38:00 ERROR Menu:92 - Entrée invalide vérifier que votre réponse soit bien une des lettres majuscule
+2019-10-19 21:44:00 ERROR Main:34 - Une erreur inconnue est survenue (class java.lang.NullPointerException)
+2019-10-19 21:48:47 ERROR Parametres:70 - Le fichier properties est introuvable 
+2019-10-19 21:50:11 ERROR ResourceBundle:70 - Le fichier properties est introuvable 

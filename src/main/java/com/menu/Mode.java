@@ -1,5 +1,6 @@
 package com.menu;
 
+import com.Main;
 import com.joueur.Ordi;
 import com.joueur.Player;
 import com.joueur.User;
@@ -9,31 +10,72 @@ import java.io.IOException;
 
 
 /***
- * <p>Contient les méthodes challenger défenseur et duel pour sélectionner le mode de jeux </p>
+ * <b>La classe mode contient les modes de jeux a travers ces trois méthodes :</b>
+ * <p>Chaque méthode correspond a un mode de jeu :</p>
+ * <ul>
+ *     <li>challenger()</li>
+ *     <li>defenseur()</li>
+ *     <li>duel()</li>
+ * </ul>
+ * @author Amet Soro
+ * @version 1.0
  */
 public class Mode {
-
+    /**
+     * Instanciation d'objet du type Logger servant a généré les logs dans Mode.
+     */
     private static Logger logger = Logger.getLogger(Mode.class);
+    /**
+     * Instanciation d'objet du type Parametres servant a récupérer les paramètres du jeu.
+     */
     private Parametres settingsObj;
-    private Menu menuObj;
+    /**
+     * Instanciation d'objet du type Player qui représente le joueur user.
+     */
     private Player userObj;
+    /**
+     * Instanciation d'objet du type Player qui représente le joueur Ordi.
+     */
     private Player ordiObj;
+    /**
+     * String contenant le code User.
+     */
     private String codeUser;
+    /**
+     * String contenant le code Ordi.
+     */
     private String codeOrdi;
+    /**
+     * boolean qui définis la condition pour rejouer.
+     */
     private boolean rejouer;
+    /**
+     * int contenant le nombre de chiffres max du code.
+     */
     private int nombreUnit;
+    /**
+     * String contenant la borne max du code a générer.
+     */
     private String maxString;
+    /**
+     * String contenant la borne min du code a générer.
+     */
     private String minString;
+    /**
+     * boolean qui définis la Validité du fichier properties.
+     */
     private boolean isParamValid;
+    /**
+     * int contenant le nombre de tours max.
+     */
     private int tours;
 
     /***
-     * Constructeur de la classe Mode
-     * @throws IOException Si jamais une exception est relevé
+     * Constructeur par défaut de la classe Mode.
      */
-    public Mode() throws IOException {
+    public Mode() {
         this.settingsObj = new Parametres();
-        this.menuObj = new Menu();
+        //  this.menuObj = new Menu();
         this.userObj = new User();
         this.ordiObj = new Ordi();
         this.rejouer = false;
@@ -48,54 +90,64 @@ public class Mode {
 //Retour valeurs paramètres
 
     /***
-     * Récupère le boolean isParamValid
-     * @return false si fichier properties introuvable
+     * Récupère le boolean isParamValid.
+     * @return False si fichier properties introuvable.
      */
     public boolean isParamValid() {
         return isParamValid;
     }
 
     /**
-     * Récupère le nombres de chiffres max de la combinaison
-     * @return le nombres de chiffres max de la combinaison définit dans le fichier properties
+     * Récupère le nombres de chiffres max de la combinaison.
+     *
+     * @return le nombres de chiffres max de la combinaison définit dans le fichier properties..
      */
     public int getNombreUnit() {
         return nombreUnit;
     }
+
     /**
-     * Récupère la borne max de la combinaison
-     * @return la borne max de la combinaison définit dans le fichier properties
+     * Récupère la borne max de la combinaison.
+     *
+     * @return la borne max de la combinaison définit dans le fichier properties.
      */
     public String getMaxString() {
         return maxString;
     }
+
     /**
-     * Récupère la borne min de la combinaison
-     * @return la borne min de la combinaison définit dans le fichier properties
+     * Récupère la borne min de la combinaison.
+     *
+     * @return la borne min de la combinaison définit dans le fichier properties.
      */
     public String getMinString() {
         return minString;
     }
+
     /**
-     * Récupère le nombres de tours max de la combinaison
-     * @return le nombres de tours max de la combinaison définit dans le fichier properties
+     * Récupère le nombres de tours max de la combinaison.
+     *
+     * @return le nombres de tours max de la combinaison définit dans le fichier properties.
      */
     public int getTours() {
         return tours;
     }
 
     /***
-     * Lance le mode challenger
-     * @throws IOException
+     * Lance le mode challengeur qui consiste a trouver la combinaison de l'Ordi.
+     * <p>L'instance de l'ordi ordiObj génère une combinaison grace à generCodeString().<br>
+     * L'instance de l'User userObj défini une solution grace à defineCodeUser().<br>
+     * L'Ordi compare les combinaisons grace a la méthode compare() et donne les indications -+=.<br>
+     * Tans qu'il y a des manches et que l'user ne trouve pas la solution la boucle continue.</p>
      */
-    public void challenger() throws IOException {
+    public void challenger() {
         logger.info("Arriver dans le mode Challenger");
         //Initialisations des instances
         //conteurs for loop
         int i;
         int j;
         //Création combinaison EA
-        codeOrdi =  ordiObj.generCodeString(getMinString(), getMaxString());
+        codeOrdi = ordiObj.generCodeString(getMinString(), getMaxString());
         //Infos qui indique  les valeurs en fonction des paramètres
         System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
         System.out.println("                              Infos ");
@@ -126,20 +178,25 @@ public class Mode {
 
             }
         }
-        //Envoie au menu final
-        rejouer = menuObj.endMenuUser();
-        if (rejouer == true) challenger(); //Condition pour relancer même mode
+
     }
 
     /***
-     * Lance le mode defenseur
-     * @throws IOException
-     */    public void defenseur() throws IOException {
+     * Lance le mode defenseur l'Ordi doit trouver la combinaison de l'User.<br>
+     * <p>L'instance de l'User userObj défini une combinaison grace à defineCodeUser().<br>
+     * L'instance de l'ordi ordiObj génère la solution initiale grace à generCodeString(),<br>
+     * en passant les paramètres borneMin et borneMax défini dans le fichier properties<br>
+     * L'User compare les combinaisons grace a la méthode compare() et donne les indications -+=<br>
+     * L'Ordi génère les solutions suivante en utilisant la méthode newCodeOrdi()<br>
+     * qui retourne les nouvelle borneMin et borneMax<br>
+     * Tans qu'il y a des manches et que l'Ordi ne trouve pas la solution la boucle continue</p>
+     */
+    public void defenseur() {
         logger.info("Arriver dans le mode Défenseur");
         String getmax = getMaxString();
         String getMin = getMinString();
-        String borneMax= getmax;
-        String borneMin= getMin;
+        String borneMax = getmax;
+        String borneMin = getMin;
         //Infos qui indique  les valeurs en fonction des paramètres
         System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
         System.out.println("                              Infos ");
@@ -183,30 +240,37 @@ public class Mode {
 
             }
         }
-        rejouer = menuObj.endMenuUser();
-        if (rejouer == true)
-           defenseur(); //Condition pour relancer même mode
 
     }
 
     /***
-     * Lance le mode duel
-     * @throws IOException
+     * Lance le mode duel le premier a trouver la combinaison gagne.
+     * <p>
+     * L'instance de l'ordi ordiObj génère sa combinaison initiale grace à generCodeString().<br>
+     * L'instance de l'ordi ordiObj génère une solution grace à generCodeString().<br>
+     * L'instance de l'User userObj définit sa combinaison grace à defineCodeUser().<br>
+     * L'instance de l'User userObj définit une solution grace à defineCodeUser().<br>
+     * L'Ordi compare les combinaisons grace a la méthode compare() et donne les indications -+=.<br>
+     * L'Ordi génère les solutions suivante en utilisant la méthode newCodeOrdi()<br>
+     * qui retourne les nouvelle borneMin et borneMax.<br>
+     * L'User continue de définir ses solutions en fonction des indications de l'Ordi.<br>
+     * Tans que l'Ordi ou l'User ne trouve pas la solution la boucle continue.</p>
      */
-    public void duel() throws IOException {
+
+    public void duel() {
         logger.info("Arriver dans le mode Duel");
         //Stock borne min max provisoir
         String getMax = getMaxString();
         String getMin = getMinString();
-        String borneMax= getMax;
-        String borneMin= getMin;
+        String borneMax = getMax;
+        String borneMin = getMin;
         String tentativeUser;
         String tentativeOrdi;
         boolean sortie = false;
         //Définition combinaison Ordi
-        codeOrdi =  ordiObj.generCodeString(getMinString(), getMaxString());
+        codeOrdi = ordiObj.generCodeString(getMinString(), getMaxString());
         //Définition tentative Ordi
-        tentativeOrdi =  ordiObj.generCodeString(getMinString(), getMaxString());
+        tentativeOrdi = ordiObj.generCodeString(getMinString(), getMaxString());
 
         //Infos qui indique  les valeurs en fonction des paramètres
         System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
@@ -243,7 +307,7 @@ public class Mode {
                     break;
                 }
                 if (settingsObj.isDevMode()) {
-                    logger.info("             Mode Dev activé L'EA a choisie : " + codeOrdi+" Borne min : "+borneMin+" borne max : "+borneMax);
+                    logger.info("             Mode Dev activé L'EA a choisie : " + codeOrdi + " Borne min : " + borneMin + " borne max : " + borneMax);
                 }
                 System.out.print("La proposition de l'Ordi est  : " + tentativeOrdi + " -> Indication : ");
                 ordiObj.compare(tentativeOrdi, codeUser);
@@ -260,8 +324,7 @@ public class Mode {
 
         } while (!sortie);
 
-        rejouer = menuObj.endMenuUser();
-        if (rejouer == true) duel(); //Condition pour relancer même mode
+
     }
 
 }

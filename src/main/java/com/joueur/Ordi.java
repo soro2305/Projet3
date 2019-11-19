@@ -5,52 +5,82 @@ import org.apache.log4j.Logger;
 
 
 /**
- * <p>Regroupe les fonctionnalités propres à l'Ordi</p>
+ * <b>La classe Ordi représente le joueur incarner par l'ordinateur.</b>
+ * <p>Le joueur Ordi peut :</p>
  * <ul>
- *    <ul>Générateur de combinaison</ul>
- *    <ul>Conversion de sting en int</ul>
- *    <ul>Comparaison de combinaison</ul>
+ *    <li>Générer une combinaison a trouvé par l'utilisateur</li>
+ *    <li>Proposer une solution initiale</li>
+ *    <li>Proposer une solution à partir des indications donner par l'utilisateur</li>
+ *    <li>Comparer sa combinaison est celle de l'utilisateur, afin de fournir des indications -+= pour guider l'adversaire</li>
  * </ul>
+ *
+ * @author Amet Soro
+ * @version 1.0
  */
 public class Ordi extends Player {
-    //Initialisation du logger pour player
-    //Création d'objets settings pr importé les paramètres utiles
+    /**
+     * Création d'objets du type Paramètres.  Afin d'importer le nombre d'unités défini dans le fichier properties.
+     */
     Parametres settingsObj = new Parametres();
 
     /**
-     * Génère un code aléatoire String entre les bornes minimum et maximum
-     * @param min borne minimum
-     * @param max borne maximum
-     * @return nouveau chiffres String générer
-     * */
+     * Génère un code aléatoire String entre les bornes minimums et maximales définies en param.
+     *
+     * @param min Ce param devient la borne minimum du générateur Random de chiffre.
+     * @param max Ce param devient la borne maximum du générateur Random de chiffre.
+     * @return Nouveau chiffre String Random générer.
+     */
     public String generCodeString(String min, String max) {
+
         int minI = Integer.parseInt(min);
         int maxI = Integer.parseInt(max);
 
         int stockReponse = genere.nextInt((maxI - minI) + 1) + minI; //Classe Random utiliser pour définir les bornes max min de la combinaison
         String newCode = Integer.toString(stockReponse); //Conversion de la combi en string
-
+        while (newCode.length() < 4) {
+            newCode = "0" + newCode;
+        }
         return newCode; //Retour combinaison String
+
     }
 
     /**
-     * Génère un code aléatoire int entre les bornes minimum et maximum
-     * @param min borne minimum
-     * @param max borne maximum
-     * @return nouveau chiffres int générer
-     */    public int generCodeInt(int min, int max) {
-            int newsUnit = genere.nextInt((max - min) + 1) + min; //Classe Random utiliser pour définir les bornes max min de la combinaison
+     * Génère un code aléatoire int entre les bornes minimums et maximales définies en param.
+     *
+     * @param min Ce param devient la borne minimum du générateur Random de chiffre.
+     * @param max Ce param devient la borne maximum du générateur Random de chiffre.
+     * @return Nouveau chiffre int Random générer.
+     */
+    public int generCodeInt(int min, int max) {
+        int newsUnit = genere.nextInt((max - min) + 1) + min; //Classe Random utiliser pour définir les bornes max min de la combinaison
 
         return newsUnit; //Retour combinaison
 
     }
+
     /**
-     * Permet à l'ordi de générer une combinaison  à partir des indications de sa précédente combinaison
-     * @param codeOrdi1 Combinaison générer par l'ordi
-     * @param codeUser Combinaison générer par l'user
-     * @param min1 Précédente borne minimum
-     * @param max1 Précédente borne maximum
-     * @return Array Tableau comprenant nouvelle combinaison ordi ainsi que nouvelle borne Min et Max
+     * Permet à l'ordi de générer une combinaison  à partir des indications de sa précédente combinaison.
+     * <p>Les quatre arguments sont divisés en unités puis converties en int :</p>
+     * <ul>
+     *     <li>codeUser devient unitCodeUser</li>
+     *     <li>codeOrdi1 devient unitCodeOrdi</li>
+     *     <li>min1 devient unitCodeMin</li>
+     *     <li>max1 devient unitCodeMax</li>
+     *     </ul>
+     *     <p>Ensuite unitcodeuser et comparés à unitcodeordi de façon a ce que si : </p>
+     *     <ul>
+     *         <li>unitCodeUser est plus petit que unitCodeOrdi donc le nouveau chiffre généré soit compris entre unitCodeMin et unitCodeOrdi</li>
+     *         <li>unitCodeUser est plus grand que unitCodeOrdi donc le nouveau chiffre généré soit compris entre unitCodeOrdi et unitCodeMax</li>
+     *         <li>unitCodeUser est égale à unitCodeOrdi donc le chiffre généré reste inchangé</li>
+     *     </ul>
+     *     <p>Les nouveaux minimums et maximums sont stocker.</p>
+     *     <p>Les nouvelles valeurs sont converties en String puis retourner sous forme d'Array de String.</p>
+     *
+     * @param codeOrdi1 Combinaison générée par l'ordi.
+     * @param codeUser  Combinaison générée par l'user.
+     * @param min1      Précédente borne minimum.
+     * @param max1      Précédente borne maximum.
+     * @return Array Tableau comprenant nouvelle combinaison ordi ainsi que nouvelle borne Min et Max.
      */
     public String[] newCodeOrdi(String codeUser, String codeOrdi1, String min1, String max1) {
         //Initialisation variables
@@ -77,28 +107,37 @@ public class Ordi extends Player {
                 for (int i3 = 0; i < min1.length(); i++) {
                     for (int i4 = 0; i < max1.length(); i++) {
 //                       //Conversion et stockage de ses caractères dans des var int
-                        int unitCodeMin = Character.getNumericValue(min1.charAt(i));
-                        int unitCodeMax = Character.getNumericValue(max1.charAt(i));
-                        int unitCodeUser = Character.getNumericValue(codeUser.charAt(i));
-                        int unitCodeOrdi = Character.getNumericValue(codeOrdi1.charAt(i));
+                        int unitCodeMin = 0;
+                        int unitCodeMax = 0;
+                        int unitCodeUser = 0;
+                        int unitCodeOrdi = 0;
+                        try {
+                            unitCodeMin = Character.getNumericValue(min1.charAt(i));
+                            unitCodeMax = Character.getNumericValue(max1.charAt(i));
+                            unitCodeUser = Character.getNumericValue(codeUser.charAt(i));
+                            unitCodeOrdi = Character.getNumericValue(codeOrdi1.charAt(i));
+                        } catch (StringIndexOutOfBoundsException e) {
+                            System.out.println("");
+                            return null;
+                        }
                         //Conditions pour comparer si les futur unités combi Ordi doivent êtres "-+="
                         if (unitCodeUser < unitCodeOrdi) {
 
-                            if (unitCodeUser==0 ){
-                                unitPlusBas = generCodeInt((unitCodeMin ), (unitCodeOrdi ));//Borne min dernière min+1, borne max ordi-1 pr évité les doublons
-                            }else
-                            unitPlusBas = generCodeInt((unitCodeMin + 1), (unitCodeOrdi - 1));//Borne min dernière min+1, borne max ordi-1 pr évité les doublons
+                            if (unitCodeUser == 0) {
+                                unitPlusBas = generCodeInt((unitCodeMin), (unitCodeOrdi));//Borne min dernière min+1, borne max ordi-1 pr évité les doublons
+                            } else
+                                unitPlusBas = generCodeInt((unitCodeMin + 1), (unitCodeOrdi - 1));//Borne min dernière min+1, borne max ordi-1 pr évité les doublons
                             stockCode[i] = unitPlusBas;//Stocke unit new code
                             previousMax[i] = unitCodeOrdi;//Stocke news unit Max
                             previousMin[i] = unitCodeMin;//Stocke news unit Min
                         }
                         //Boucle génére nouvelle unité tant que plus basse que précédente
                         if (unitCodeUser > unitCodeOrdi) {
-                            if (unitCodeUser == 9){
-                                unitPlusHaut = generCodeInt((unitCodeOrdi ), (unitCodeMax));//Borne min dernière min+1, borne max ordi-1 pr évité les doublons
-                            }else
-                            //Méthode random génére news units.
-                            unitPlusHaut = generCodeInt((unitCodeOrdi + 1), (unitCodeMax - 1));//Borne min ordi+1, borne max dernière max-1 pr évité les doublons
+                            if (unitCodeUser == 9) {
+                                unitPlusHaut = generCodeInt((unitCodeOrdi), (unitCodeMax));//Borne min dernière min+1, borne max ordi-1 pr évité les doublons
+                            } else
+                                //Méthode random génére news units.
+                                unitPlusHaut = generCodeInt((unitCodeOrdi + 1), (unitCodeMax - 1));//Borne min ordi+1, borne max dernière max-1 pr évité les doublons
                             stockCode[i] = unitPlusHaut;//Stocke unit new code
                             previousMin[i] = unitCodeOrdi;//Stocke news unit Min
                             previousMax[i] = unitCodeMax;//Stocke news unit Max
@@ -136,14 +175,19 @@ public class Ordi extends Player {
     }
 
     /**
-     * Converti un Array de String en String
-     * @param strArray array de string a convertir en string
-     * @return nouveau string
-     */    public static String ArrayToString(String[] strArray) {
+     * Converti un Array de String en String.
+     *
+     * @param strArray Array de string a convertir en string.
+     * @return Nouveau String issue de l'Array de String.
+     */
+    public static String ArrayToString(String[] strArray) {
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < strArray.length; i++) {
             stringBuilder.append(strArray[i]);
         }
+
         return stringBuilder.toString();
+
     }
+
 }
